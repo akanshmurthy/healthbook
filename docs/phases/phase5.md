@@ -1,4 +1,4 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Styling, Cleanup and Seeding
 
 ## Rails
 ### Models
