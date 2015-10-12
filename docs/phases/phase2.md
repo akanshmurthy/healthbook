@@ -9,25 +9,22 @@
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* MedicalProfile
 
 ### Stores
-* Note
+* MedicalProfile
 
 ### Actions
-* ApiActions.receiveAllNotes
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
+* ApiActions.receiveAllItems
+* ApiActions.receiveSingleItem
+* ApiActions.deleteItem
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllItems
+* ApiUtil.fetchSingleItem
+* ApiUtil.createItem
+* ApiUtil.editItem
+* ApiUtil.destroyItem
 
 ## Gems/Libraries
 * Flux Dispatcher
-* Twitter Bootstrap

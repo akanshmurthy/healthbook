@@ -2,38 +2,33 @@
 
 ## Rails
 ### Models
-* Notebook
-* Tag
-* Tagging
+* NewsfeedItem
+
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::NewsfeedItemsController (create, destroy, index, show, update)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
-* tags/show.json.jbuilder
+* newsfeedItems/index.json.jbuilder
+* newsfeedItems/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
-* SearchIndex
+* NewsfeedIndex
 
 ### Stores
-* Notebook
+* Newsfeed
 
 ### Actions
-* ApiActions.receiveAllNotebooks
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
+* ApiActions.receiveAllItems
+* ApiActions.receiveSingleItem
+* ApiActions.deleteItem
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchAllItems
+* ApiUtil.fetchSingleItem
+* ApiUtil.createItem
+* ApiUtil.editItem
+* ApiUtil.destroyItem
 
 ## Gems/Libraries
