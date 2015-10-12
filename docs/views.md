@@ -6,21 +6,17 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Medical Profile
+![patient-profile]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
-
-## NoteBookForm
-![notebook-form]
+## Newsfeed
+![news-feed]
 
 ## Component Heirarchy
 ![component-heirarchy]
 
-[new-user]: ./wireframes/new_user.png
-[new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
-[component-heirarchy]: ./wireframes/component_heirarchy.png
+[new-user]: ./wireframes/sign_up_page.png
+[new-session]: ./wireframes/sign_in_page.png
+[news-feed]: ./wireframes/news_feed_page.png
+[patient-profile]: ./wireframes/patient_profile_page.png
+[component-heirarchy]: ./wireframes/component_hierarchy.png

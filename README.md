@@ -1,6 +1,6 @@
 # Healthbook
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku]
 
 [heroku]: https://damp-hollows-7371.herokuapp.com/
 
