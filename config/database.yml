@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: healthbook_production
-  username: healthbook
-  password: <%= ENV['HEALTHBOOK_DATABASE_PASSWORD'] %>
