@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user!, only: [:index]
   before_action :require_no_user!, only: [:new, :create]
-
-  def index
-    render :index
-  end
 
   def create
     @user = User.new(user_params)
