@@ -11,13 +11,13 @@
         }
       });
     },
-    delete: function (id) {
+    delete: function () {
       $.ajax({
-        url: 'api/users',
-        type: 'delete',
-        dataType: 'json',
-        success: function(result) {
-          root.UserActions.receiveUser(result);
+        url: "/session",
+        type: 'POST',
+        data: {_method: 'delete'},
+        success: function (html, status, object) {
+          window.location = "session/new";
         }
       });
     }
