@@ -6,6 +6,7 @@
         actionType: root.StatusFormConstants.POST_RECEIVED,
         post: result
       });
+      // update all action dispatches all posts
     },
 
   };

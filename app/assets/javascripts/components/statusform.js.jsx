@@ -17,18 +17,23 @@
     },
     render: function () {
       return(
-        <form className='new-post' onSubmit={this.createPost}>
-         <div>
-           <label htmlFor='post_body'>Body:</label>
-           <input
-             type='text'
-             id='post_body'
-             onChange={this.handleChange}
-           />
+        <div className="row">
+          <div className="col-xs-4">
+            <form className="new-post" onSubmit={this.createPost}>
+             <div className="form-group">
+               <label htmlFor="post_body">Body:</label>
+               <input
+                 type="text"
+                 id="post_body"
+                 onChange={this.handleChange}
+                 className="form-control"
+               />
+             </div>
+             <button type="submit" className="btn btn-primary">Create Post</button>
+             <br />
+           </form>
          </div>
-         <button>Create Post</button>
-         <br />
-       </form>
+       </div>
       );
     }
   });

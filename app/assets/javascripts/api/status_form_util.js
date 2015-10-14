@@ -1,7 +1,7 @@
 (function(root) {
   'use strict';
   root.StatusFormUtil = {
-    post: function (data) {
+    post: function(data) {
       $.ajax({
         url: 'api/posts',
         type: 'post',
@@ -11,6 +11,17 @@
           root.StatusFormActions.receivePost(result);
         }
       });
-    }
+    },
+    get: function() {
+      $.ajax({
+        url: 'api/posts',
+        type: 'get',
+        dataType: 'json',
+        success: function(result) {
+          // call update all action
+          return result;
+        }
+      });
+    },
   };
 }(this));

@@ -22,7 +22,7 @@ window.createRouter = function(){
   });
   var routes = (
       <Route path="/" component={App}>
-        <IndexRoute component={NewsFeed, StatusForm}/>
+        <IndexRoute components={{comp1: NewsFeed, comp2: StatusForm, comp3: Posts}}/>
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);
