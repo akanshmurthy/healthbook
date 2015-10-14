@@ -1,5 +1,5 @@
 /* global ReactRouter, React */
-$(function(){
+window.createRouter = function(){
   var root = document.getElementById('main');
   var RouteHandler = ReactRouter.RouteHandler;
   var Router = ReactRouter.Router;
@@ -26,4 +26,4 @@ $(function(){
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);
-});
+};

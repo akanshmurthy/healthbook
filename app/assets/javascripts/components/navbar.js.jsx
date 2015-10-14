@@ -3,6 +3,9 @@
 (function(root) {
   'use strict';
   root.NavBar = React.createClass({
+    logout: function () {
+      root.UserUtil.delete();
+    },
     render: function () {
       return(
         <div>
@@ -26,7 +29,7 @@
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Notifications</a></li>
                 <li><a href="#">Messages</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="#" onClick={this.logout}>Logout</a></li>
               </ul>
             </div>
 
