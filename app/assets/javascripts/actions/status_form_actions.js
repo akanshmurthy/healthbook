@@ -6,8 +6,12 @@
         actionType: root.StatusFormConstants.POST_RECEIVED,
         post: result
       });
-      // update all action dispatches all posts
     },
-
+    receiveAll: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.StatusFormConstants.ALL_NEEDED,
+        posts: result
+      });
+    },
   };
 }(this));

@@ -19,7 +19,7 @@
         dataType: 'json',
         success: function(result) {
           // call update all action
-          return result;
+          root.StatusFormActions.receiveAll(result);
         }
       });
     },

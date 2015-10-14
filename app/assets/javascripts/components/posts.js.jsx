@@ -6,18 +6,18 @@
     getInitialState: function () {
       return({posts: []});
     },
+    _onChange: function () {
+      this.setState({posts: root.StatusFormStore.posts() });
+    },
     componentDidMount: function () {
       root.StatusFormUtil.get();
-
-      this.setState({posts: });
-      debugger;
+      root.StatusFormStore.addChangeListener(this._onChange);
     },
     render: function () {
-      debugger;
       return(
          <ul className="list-group">
            {this.state.posts.map(function(el){
-             return <li className="list-group-item">{el}</li>;
+             return <li key={el.id} className="list-group-item">{el.body} at {el.created_at}</li>;
            })}
          </ul>
       );

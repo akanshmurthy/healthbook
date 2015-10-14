@@ -6,7 +6,9 @@
   var addPost = function (data) {
     _posts.push(data);
   };
-
+  var resetPosts = function (data) {
+    _posts = data;
+  };
   root.StatusFormStore = $.extend({}, EventEmitter.prototype, {
     posts: function () {
       return _posts.slice();
@@ -17,10 +19,13 @@
     dispatcherID: root.AppDispatcher.register(function(payload){
      switch(payload.actionType){
        case window.StatusFormConstants.POST_RECEIVED:
-         var result = addPost(payload.post);
+         addPost(payload.post);
          root.StatusFormStore.emit(CHANGE_EVENT);
          break;
-        //  listen for update all
+       case window.StatusFormConstants.ALL_NEEDED:
+         resetPosts(payload.posts);
+         root.StatusFormStore.emit(CHANGE_EVENT);
+         break;
      }
     })
   });
