@@ -9,8 +9,13 @@ $(function(){
     render: function(){
       return (
           <div>
-            <header><h1>Healthbook</h1></header>
-            {this.props.children}
+            <header>
+              <NavBar />
+            </header>
+            <div className="container">
+              <h1>Healthbook</h1>
+              {this.props.children}
+            </div>
           </div>
       );
     }

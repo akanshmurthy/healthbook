@@ -16,7 +16,7 @@
     render: function () {
       return(
         <div>
-          {this.state.user.user_name}
+          Hello, {this.state.user.user_name}!
         </div>
       );
     }

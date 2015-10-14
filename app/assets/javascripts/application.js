@@ -19,4 +19,5 @@
 //= require ReactRouter.min.js
 //= require eventemitter
 //= require components
+//= require bootstrap
 //= require_tree .
