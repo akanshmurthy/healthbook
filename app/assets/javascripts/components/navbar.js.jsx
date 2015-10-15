@@ -12,6 +12,8 @@
           <nav className="navbar navbar-default">
           <div className="container-fluid">
 
+          <SearchBar />
+
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed"
                       data-toggle="collapse"
