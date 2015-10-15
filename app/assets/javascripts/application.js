@@ -20,4 +20,5 @@
 //= require eventemitter
 //= require components
 //= require bootstrap
+//= require timeago.js
 //= require_tree .

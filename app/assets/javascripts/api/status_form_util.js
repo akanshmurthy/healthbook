@@ -18,9 +18,18 @@
         type: 'get',
         dataType: 'json',
         success: function(result) {
-          // call update all action
           root.StatusFormActions.receiveAll(result);
         }
+      });
+    },
+    destroy: function(id) {
+      $.ajax({
+        url: 'api/posts/' + id,
+        type: 'post',
+        data: {_method: 'delete'},
+        success: function(result) {
+          root.StatusFormActions.deletePost(result);
+         }
       });
     },
   };

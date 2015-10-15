@@ -13,5 +13,11 @@
         posts: result
       });
     },
+    deletePost: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.StatusFormConstants.POST_DELETED,
+        post: result
+      });
+    },
   };
 }(this));

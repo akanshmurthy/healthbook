@@ -13,6 +13,12 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    render json: post
+  end
+  
   private
 
   def post_params

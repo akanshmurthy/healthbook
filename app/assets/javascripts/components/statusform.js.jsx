@@ -27,6 +27,8 @@
                  id="post_body"
                  onChange={this.handleChange}
                  className="form-control"
+                 placeholder="How are you feeling today?"
+                 value={this.state.body}
                />
              </div>
              <button type="submit" className="btn btn-primary">Create Post</button>

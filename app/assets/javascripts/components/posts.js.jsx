@@ -13,11 +13,21 @@
       root.StatusFormUtil.get();
       root.StatusFormStore.addChangeListener(this._onChange);
     },
+    delete: function(id) {
+      root.StatusFormUtil.destroy(id);
+      root.StatusFormStore.addChangeListener(this._onChange);
+     },
+
     render: function () {
+      var that = this;
       return(
          <ul className="list-group">
-           {this.state.posts.map(function(el){
-             return <li key={el.id} className="list-group-item">{el.body} at {el.created_at}</li>;
+           {that.state.posts.map(function(el){
+             return <li key={el.id} className="list-group-item">{el.body}
+                 <h6>{
+                   jQuery.timeago(el.created_at)}
+                 </h6><a href="#" onClick={that.delete.bind(that, el.id)}>Delete</a>
+               </li>;
            })}
          </ul>
       );
