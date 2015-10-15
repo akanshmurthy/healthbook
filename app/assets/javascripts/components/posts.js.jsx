@@ -7,7 +7,7 @@
       return({posts: []});
     },
     _onChange: function () {
-      this.setState({posts: root.StatusFormStore.posts() });
+      this.setState({posts: root.StatusFormStore.posts()});
     },
     componentDidMount: function () {
       root.StatusFormUtil.get();

@@ -22,6 +22,17 @@
         }
       });
     },
+    getWithBounds: function(searchString) {
+      $.ajax({
+        url: 'api/posts',
+        type: 'get',
+        data: searchString,
+        dataType: 'json',
+        success: function(result) {
+          root.StatusFormActions.receiveSearchResults(result);
+        }
+      });
+    },
     destroy: function(id) {
       $.ajax({
         url: 'api/posts/' + id,
