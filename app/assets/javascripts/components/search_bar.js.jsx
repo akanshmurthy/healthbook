@@ -15,7 +15,6 @@
         <ul id="searchresults">
         {
           this.props.matches.map(function(post) {
-            // var url = "api/posts/"+post.id;
             return <button onClick={this.postClicked.bind(null, post.id)} id="searchresult" type="button" className="btn btn-primary" key={post.id} >
               {post.body}
             </button>;
@@ -45,8 +44,7 @@
       this.setState({matchesAry: root.StatusFormStore.searchPosts()});
     },
     handleSubmit: function(e) {
-
-
+      alert("Nothing found. Sorry!");
     },
     render: function () {
       return(

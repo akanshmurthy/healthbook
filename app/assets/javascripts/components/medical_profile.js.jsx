@@ -6,7 +6,10 @@
     render: function () {
       return(
         <div>
-          Welcome to your profile!
+          <div className="cover-photo"></div>
+          <div className="profile-photo"></div>
+          <div className="about"><Tab /></div>
+          <br></br>
         </div>
       );
     }
