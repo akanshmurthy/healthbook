@@ -4,41 +4,58 @@
   'use strict';
 
   root.ReturnClass = React.createClass({
+    mixins: [ReactRouter.History],
+    postClicked: function(id, e){
+      e.preventDefault();
+      this.history.pushState(null, "posts/" + id);
+    },
     render: function () {
+      var that = this;
       return (
-        <ul>
+        <ul id="searchresults">
         {
           this.props.matches.map(function(post) {
-            return <li key={post}>{post}</li>;
-          })
+            // var url = "api/posts/"+post.id;
+            return <button onClick={this.postClicked.bind(null, post.id)} id="searchresult" type="button" className="btn btn-primary" key={post.id} >
+              {post.body}
+            </button>;
+          }.bind(this))
         }
-        </ul>
+       </ul>
       );
     }
   });
 
   root.SearchBar = React.createClass({
     getInitialState: function () {
-      return({strings: ["good", "jelly"], matchesAry: []});
+      return({matchesAry: []});
     },
-    handleUserInput: function (e) {
+    handleUserInput: function(e) {
       var searchString = e.currentTarget.value;
-      var matches = [];
-      this.state.strings.forEach(function(el){
-        if ((searchString.length !== 0) && (el.slice(0, searchString.length) === searchString)) {
-          matches.push(el);
-        }
-      });
-      this.setState({matchesAry: matches});
+      if (searchString.length > 0) {
+        root.StatusFormUtil.getWithBounds({search_string: searchString});
+      } else {
+        this.setState({matchesAry: []});
+      }
+    },
+    componentDidMount: function () {
+      root.StatusFormStore.addChangeListener(this._onChange);
+    },
+    _onChange: function () {
+      this.setState({matchesAry: root.StatusFormStore.searchPosts()});
+    },
+    handleSubmit: function(e) {
+
+
     },
     render: function () {
       return(
-        <div>
-        <form className="navbar-form navbar-left" role="search">
+        <div id="searchbar">
+        <form className="navbar-form navbar-left" onSubmit={this.handleSubmit} role="search">
           <div className="form-group">
               <input onInput={this.handleUserInput} type="text" className="form-control" placeholder="Search"/>
           </div>
-          <button type="submit" className="btn btn-default"><span className="glyphicon glyphicon-search"></span></button>
+          <button type="submit" className="btn btn-primary"><span className="glyphicon glyphicon-search"></span></button>
         </form>
         <div>
         <ReturnClass matches={this.state.matchesAry}/>
