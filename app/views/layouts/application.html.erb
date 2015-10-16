@@ -8,6 +8,10 @@
   <% if current_user %>
   <script>
     window.CURRENT_USER_ID = <%=current_user.id%>
+    window.CLOUDINARY_OPTIONS = {
+      cloud_name: "<%=ENV['CLOUD_NAME']%>",
+      upload_preset: "<%= ENV['UPLOAD_PRESET'] %>"
+    };
   </script>
   <% end %>
 </head>

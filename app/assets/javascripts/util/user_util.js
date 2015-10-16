@@ -11,10 +11,21 @@
         }
       });
     },
+    // post: function (data) {
+    //   $.ajax({
+    //     url: 'api/users/' + current_user.id,
+    //     type: 'patch',
+    //     data: data,
+    //     dataType: 'json',
+    //     success: function(result) {
+    //       root.UserActions.receiveUser(result);
+    //     }
+    //   });
+    // },
     delete: function () {
       $.ajax({
         url: "/session",
-        type: 'POST',
+        type: 'post',
         data: {_method: 'delete'},
         success: function (html, status, object) {
           window.location = "session/new";

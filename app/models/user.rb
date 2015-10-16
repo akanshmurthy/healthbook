@@ -8,6 +8,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  url_string      :string
 #
 
 class User < ActiveRecord::Base
@@ -19,6 +20,13 @@ class User < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
 
   after_initialize :ensure_session_token
+
+  has_many(
+    :posts,
+    class_name: "Post",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
 
   def self.find_by_credentials(user_name, password)
     user = User.find_by(user_name: user_name)
