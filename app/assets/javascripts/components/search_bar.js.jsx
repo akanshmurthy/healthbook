@@ -1,4 +1,4 @@
-/* global React */
+/* global React, ReactRouter, ReturnClass */
 
 (function(root) {
   'use strict';
