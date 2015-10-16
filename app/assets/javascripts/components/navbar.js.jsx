@@ -28,7 +28,7 @@
             <div className="collapse navbar-collapse" id="collapse-menu">
               <ul className="nav navbar-nav pull-right">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="#/profile">Profile</a></li>
                 <li><a href="#">Notifications</a></li>
                 <li><a href="#">Messages</a></li>
                 <li><a href="#" onClick={this.logout}>Logout</a></li>

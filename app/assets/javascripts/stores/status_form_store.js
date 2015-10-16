@@ -3,10 +3,15 @@
   'use strict';
   var _posts = [];
   var _searchedPosts = [];
-  var CHANGE_EVENT = "change";
+  var CHANGE_EVENT = "change", SINGLE_RECEIVED_EVENT = "single";
 
-  var addPost = function(data) {
-    _posts.push(data);
+  var addOrMergePost = function(data) {
+    var existingPost = StatusFormStore.findPostById(data.id);
+    if (existingPost){
+      $.extend(existingPost, data);
+    } else {
+      _posts.push(data);
+    }
   };
 
   var resetPosts = function(data) {
@@ -31,17 +36,33 @@
     posts: function () {
       return _posts.slice();
     },
+    findPostById: function(id){
+      var foundPost;
+      _posts.forEach(function(post){
+        if (post.id == id){
+          foundPost = post;
+        }
+      });
+      return foundPost;
+    },
     searchPosts: function () {
       return _searchedPosts.slice();
     },
     addChangeListener: function(callback) {
       this.on(CHANGE_EVENT, callback);
     },
+    addSinglePostReceivedListener: function(callback) {
+      this.on(SINGLE_RECEIVED_EVENT, callback);
+    },
+    removeSinglePostReceivedListener: function(callback) {
+      this.removeListener(SINGLE_RECEIVED_EVENT, callback);
+    },
     dispatcherID: root.AppDispatcher.register(function(payload){
      switch(payload.actionType){
        case window.StatusFormConstants.POST_RECEIVED:
-         addPost(payload.post);
+         addOrMergePost(payload.post);
          root.StatusFormStore.emit(CHANGE_EVENT);
+         root.StatusFormStore.emit(SINGLE_RECEIVED_EVENT);
          break;
        case window.StatusFormConstants.ALL_NEEDED:
          resetPosts(payload.posts);

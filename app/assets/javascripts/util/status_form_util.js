@@ -12,6 +12,16 @@
         }
       });
     },
+    getSingle: function(id){
+      $.ajax({
+        url: 'api/posts/' + id,
+        type: 'get',
+        dataType: 'json',
+        success: function(result) {
+          root.StatusFormActions.receivePost(result);
+        }
+      });
+    },
     get: function() {
       $.ajax({
         url: 'api/posts',

@@ -23,6 +23,8 @@ window.createRouter = function(){
   var routes = (
       <Route path="/" component={App}>
         <IndexRoute components={{comp1: NewsFeed, comp2: StatusForm, comp3: Posts}}/>
+        <Route path="posts/:id" components={{comp1: NewsFeed, comp2: StatusForm, comp3: Posts, comp4: ShowModal}}/>
+        <Route path="profile" component={MedicalProfile} />
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);
