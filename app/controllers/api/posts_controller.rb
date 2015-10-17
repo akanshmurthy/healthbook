@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
       @posts = Post.in_bounds(params[:search_string])
       render json: @posts
     else
-      @posts = Post.all
+      @posts = Post.where("posts.user_id = ?", current_user.id)
       render json: @posts
     end
   end
