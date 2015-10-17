@@ -20,4 +20,5 @@
 //= require components
 //= require bootstrap
 //= require timeago.js
+//= require cloudinary.js
 //= require_tree .

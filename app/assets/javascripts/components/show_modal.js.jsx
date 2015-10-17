@@ -1,10 +1,10 @@
-/* global React */
+/* global React, ReactRouter */
 
 (function(root) {
   'use strict';
   root.ShowModal = React.createClass({
     getInitialState: function(){
-      var post = StatusFormStore.findPostById(this.props.params.id) || {id: this.props.params.id, body: 'loading...'};
+      var post = root.StatusFormStore.findPostById(this.props.params.id) || {id: this.props.params.id, body: 'loading...'};
       return {post: post};
     },
     mixins: [ReactRouter.History],
@@ -15,17 +15,14 @@
       return $(React.findDOMNode(this.refs.modal));
     },
     postUpdated: function(){
-      var post = StatusFormStore.findPostById(this.props.params.id);
+      var post = root.StatusFormStore.findPostById(this.props.params.id);
       this.setState({post: post});
     },
     componentDidMount: function () {
-        this.$modal().on("hidden.bs.modal", this.returnToIndex);
-        StatusFormStore.addSinglePostReceivedListener(this.postUpdated);
-        StatusFormUtil.getSingle(this.props.params.id);
-        //fetch using an API util a single post
-        //listen to the change listener
-        //upon change, update state with new post from store
-        this.$modal().modal('show');
+      this.$modal().on("hidden.bs.modal", this.returnToIndex);
+      root.StatusFormStore.addSinglePostReceivedListener(this.postUpdated);
+      root.StatusFormUtil.getSingle(this.props.params.id);
+      this.$modal().modal('show');
     },
     render: function () {
       var post = this.state.post;
@@ -35,7 +32,7 @@
             <div className="modal-content">
               <div className="modal-header">
                 <button type="button" className="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                <h4 className="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 className="modal-title" id="myModalLabel">Content</h4>
               </div>
               <div className="modal-body">
                 <h1>POST ID: {post.id}</h1>

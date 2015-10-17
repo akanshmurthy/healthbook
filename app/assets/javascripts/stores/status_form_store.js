@@ -6,7 +6,7 @@
   var CHANGE_EVENT = "change", SINGLE_RECEIVED_EVENT = "single";
 
   var addOrMergePost = function(data) {
-    var existingPost = StatusFormStore.findPostById(data.id);
+    var existingPost = root.StatusFormStore.findPostById(data.id);
     if (existingPost){
       $.extend(existingPost, data);
     } else {

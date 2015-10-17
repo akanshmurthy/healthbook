@@ -15,7 +15,7 @@
     },
     delete: function(id) {
       root.StatusFormUtil.destroy(id);
-      root.StatusFormStore.addChangeListener(this._onChange);
+      // root.StatusFormStore.addChangeListener(this._onChange);
      },
 
     render: function () {

@@ -11,10 +11,21 @@
         }
       });
     },
+    post: function (data) {
+      $.ajax({
+        url: 'api/users/' + window.CURRENT_USER_ID,
+        type: 'post',
+        data: {_method: 'patch', url: data},
+        dataType: 'json',
+        success: function(result) {
+          root.MedicalProfileActions.receiveUrl(result);
+        }
+      });
+    },
     delete: function () {
       $.ajax({
         url: "/session",
-        type: 'POST',
+        type: 'post',
         data: {_method: 'delete'},
         success: function (html, status, object) {
           window.location = "session/new";
