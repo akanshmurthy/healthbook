@@ -4,12 +4,24 @@ class Api::UsersController < ApplicationController
     render json: @user
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(params[:url].permit(:url_string))
+      p "successfully patched!"
+      render json: @user
+    else
+      render json: @user.errors.full_messages
+    end
+  end
+
   def destroy
     @user = User.find(current_user.id)
     @user.logout_user!
     render json: "Successfully logged out"
   end
-
-
+  #
+  # def url_params
+  #   params.require(:url).permit(:url_string)
+  # end
 
 end

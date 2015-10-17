@@ -4,7 +4,7 @@
   var _url = "";
   var CHANGE_EVENT = "change";
   var resetUrl = function (data) {
-    _url = data;
+    _url = data.url_string;
   };
 
   root.MedicalProfileStore = $.extend({}, EventEmitter.prototype, {

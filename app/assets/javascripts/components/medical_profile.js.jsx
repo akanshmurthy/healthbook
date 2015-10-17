@@ -11,13 +11,14 @@
       cloudinary.openUploadWidget({ cloud_name: 'dy1hwxj4e', upload_preset: 'a5naqbsw'},
       function(error, result) {
         that.setState({url: result[0].url});
-        // root.UserUtil.post({url_string: result[0].url});
+        root.UserUtil.post({url_string: result[0].url});
       });
     },
     componentDidMount: function () {
       root.MedicalProfileStore.addChangeListener(this._onChange);
     },
     _onChange: function () {
+      debugger;
       this.setState({url: root.MedicalProfileStore.url()});
     },
     render: function () {

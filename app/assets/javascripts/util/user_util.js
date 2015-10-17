@@ -11,17 +11,17 @@
         }
       });
     },
-    // post: function (data) {
-    //   $.ajax({
-    //     url: 'api/users/' + current_user.id,
-    //     type: 'patch',
-    //     data: data,
-    //     dataType: 'json',
-    //     success: function(result) {
-    //       root.UserActions.receiveUser(result);
-    //     }
-    //   });
-    // },
+    post: function (data) {
+      $.ajax({
+        url: 'api/users/' + window.CURRENT_USER_ID,
+        type: 'post',
+        data: {_method: 'patch', url: data},
+        dataType: 'json',
+        success: function(result) {
+          root.MedicalProfileActions.receiveUrl(result);
+        }
+      });
+    },
     delete: function () {
       $.ajax({
         url: "/session",
