@@ -40,6 +40,9 @@
     componentDidMount: function () {
       root.StatusFormStore.addChangeListener(this._onChange);
     },
+    componentDidUnmount: function () {
+      root.StatusFormStore.removeChangeListener(this._onChange);
+    },
     _onChange: function () {
       this.setState({matchesAry: root.StatusFormStore.searchPosts()});
     },

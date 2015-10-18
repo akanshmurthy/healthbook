@@ -13,6 +13,9 @@
       root.StatusFormUtil.get();
       root.StatusFormStore.addChangeListener(this._onChange);
     },
+    componentDidUnmount: function () {
+      root.StatusFormStore.removeChangeListener(this._onChange);
+    },
     delete: function(id) {
       root.StatusFormUtil.destroy(id);
       // root.StatusFormStore.addChangeListener(this._onChange);

@@ -21,6 +21,9 @@
       debugger;
       this.setState({url: root.MedicalProfileStore.url()});
     },
+    componentDidUnmount: function () {
+      root.MedicalProfileStore.removeChangeListener(this._onChange);
+    },
     render: function () {
       return(
         <div>

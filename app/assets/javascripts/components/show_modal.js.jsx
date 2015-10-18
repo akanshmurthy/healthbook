@@ -24,6 +24,9 @@
       root.StatusFormUtil.getSingle(this.props.params.id);
       this.$modal().modal('show');
     },
+    componentDidUnmount: function () {
+      root.StatusFormStore.removeSinglePostReceivedListener(this.postUpdated);
+    },
     render: function () {
       var post = this.state.post;
       return(
