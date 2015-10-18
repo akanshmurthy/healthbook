@@ -8,7 +8,7 @@
     },
     handleClick: function () {
       var that = this;
-      cloudinary.openUploadWidget({ cloud_name: 'dy1hwxj4e', upload_preset: 'a5naqbsw'},
+      cloudinary.openUploadWidget({ cloud_name: window.CLOUDINARY_OPTIONS.cloud_name, upload_preset: window.CLOUDINARY_OPTIONS.upload_preset},
       function(error, result) {
         that.setState({url: result[0].url});
         root.UserUtil.post({url_string: result[0].url});
