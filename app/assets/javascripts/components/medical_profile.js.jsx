@@ -4,21 +4,21 @@
   'use strict';
   root.MedicalProfile = React.createClass({
     getInitialState: function () {
-      return({url: ""});
+      return({url: window.CURRENT_USER_PROFILE_PIC});
     },
     handleClick: function () {
       var that = this;
       cloudinary.openUploadWidget({ cloud_name: window.CLOUDINARY_OPTIONS.cloud_name, upload_preset: window.CLOUDINARY_OPTIONS.upload_preset},
       function(error, result) {
-        that.setState({url: result[0].url});
-        root.UserUtil.post({url_string: result[0].url});
+        if (result) {
+          root.UserUtil.post({url_string: result[0].url});
+        }
       });
     },
     componentDidMount: function () {
       root.MedicalProfileStore.addChangeListener(this._onChange);
     },
     _onChange: function () {
-      debugger;
       this.setState({url: root.MedicalProfileStore.url()});
     },
     componentDidUnmount: function () {
