@@ -30,7 +30,6 @@
 
   root.MedicalProfileStore = $.extend({}, EventEmitter.prototype, {
     url: function () {
-      debugger;
       return _url;
     },
     all: function () {

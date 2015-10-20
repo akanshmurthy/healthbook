@@ -26,6 +26,7 @@
   });
 
   root.SearchBar = React.createClass({
+    mixins: [ReactRouter.History],
     getInitialState: function () {
       return({matchesAry: []});
     },
@@ -35,6 +36,11 @@
         root.StatusFormUtil.getWithBounds({search_string: searchString});
       } else {
         this.setState({matchesAry: []});
+      }
+    },
+    handleEnter: function(e) {
+      if (e.key === "Enter") {
+        this.history.pushState(null, "posts/" + this.state.matchesAry[0].id)
       }
     },
     componentDidMount: function () {
@@ -47,7 +53,8 @@
       this.setState({matchesAry: root.StatusFormStore.searchPosts()});
     },
     handleSubmit: function(e) {
-      alert("Nothing found. Sorry!");
+      e.preventDefault();
+      this.history.pushState(null, "posts/" + this.state.matchesAry[0].id)
     },
     render: function () {
       return(
