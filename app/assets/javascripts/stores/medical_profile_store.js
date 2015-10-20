@@ -3,6 +3,7 @@
   'use strict';
   var _url = window.CURRENT_USER_PROFILE_PIC;
   var _medicalPosts = "";
+  var URL_CHANGE_EVENT = "urlchange";
   var CHANGE_EVENT = "change";
 
   var resetUrl = function (data) {
@@ -41,11 +42,17 @@
     removeChangeListener: function(callback){
       this.removeListener(CHANGE_EVENT, callback);
     },
+    addUrlChangeListener: function (callback) {
+      this.on(URL_CHANGE_EVENT, callback);
+    },
+    removeUrlChangeListener: function(callback){
+      this.removeListener(URL_CHANGE_EVENT, callback);
+    },
     dispatcherID: root.AppDispatcher.register(function(payload){
      switch(payload.actionType){
        case window.MedicalProfileConstants.URL_RECEIVED:
          resetUrl(payload.url);
-         root.MedicalProfileStore.emit(CHANGE_EVENT);
+         root.MedicalProfileStore.emit(URL_CHANGE_EVENT);
          break;
        case window.MedicalProfileConstants.POST_RECEIVED:
          addPost(payload.post);

@@ -16,13 +16,13 @@
       });
     },
     componentDidMount: function () {
-      root.MedicalProfileStore.addChangeListener(this._onChange);
+      root.MedicalProfileStore.addUrlChangeListener(this._onChange);
     },
     _onChange: function () {
       this.setState({url: root.MedicalProfileStore.url()});
     },
     componentDidUnmount: function () {
-      root.MedicalProfileStore.removeChangeListener(this._onChange);
+      root.MedicalProfileStore.removeUrlChangeListener(this._onChange);
     },
     render: function () {
       return(
