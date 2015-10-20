@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016220211) do
+ActiveRecord::Schema.define(version: 20151019223820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "medical_posts", force: :cascade do |t|
+    t.string   "field_name"
+    t.string   "field_value"
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "medprofiles", force: :cascade do |t|
+    t.string   "medprofile_name"
+    t.string   "medprofile_value"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "body",       null: false

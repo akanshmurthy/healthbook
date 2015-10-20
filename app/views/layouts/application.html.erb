@@ -6,14 +6,14 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <% if current_user %>
-  <script>
-    window.CURRENT_USER_ID = <%=current_user.id%>
-    window.CURRENT_USER_PROFILE_PIC = "<%=current_user.url_string%>"
-    window.CLOUDINARY_OPTIONS = {
-      cloud_name: "<%=ENV["CLOUD_NAME"]%>",
-      upload_preset: "<%= ENV["UPLOAD_PRESET"] %>"
-    };
-  </script>
+    <script>
+      window.CURRENT_USER_ID = <%=current_user.id%>
+      window.CURRENT_USER_PROFILE_PIC = "<%=current_user.url_string%>"
+      window.CLOUDINARY_OPTIONS = {
+        cloud_name: "<%=ENV["CLOUD_NAME"]%>",
+        upload_preset: "<%= ENV["UPLOAD_PRESET"] %>"
+      };
+    </script>
   <% end %>
 </head>
 <body>

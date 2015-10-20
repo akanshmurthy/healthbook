@@ -1,15 +1,39 @@
 /* global EventEmitter */
 (function(root) {
   'use strict';
-  var _url = "";
+  var _url = window.CURRENT_USER_PROFILE_PIC;
+  var _medicalPosts = "";
   var CHANGE_EVENT = "change";
+
   var resetUrl = function (data) {
     _url = data.url_string;
   };
 
+  var addPost = function (data) {
+    _medicalPosts.push(data);
+  };
+
+  var resetPosts = function (data) {
+    _medicalPosts = data;
+  };
+
+  var deletePost = function(data) {
+    var target = -1;
+    _medicalPosts.forEach(function(el, idx){
+      if (el.id === data.id) {
+        target = idx;
+      }
+    });
+    _medicalPosts.splice(target, target + 1);
+  };
+
   root.MedicalProfileStore = $.extend({}, EventEmitter.prototype, {
     url: function () {
+      debugger;
       return _url;
+    },
+    all: function () {
+      return _medicalPosts;
     },
     addChangeListener: function (callback) {
       this.on(CHANGE_EVENT, callback);
@@ -21,6 +45,18 @@
      switch(payload.actionType){
        case window.MedicalProfileConstants.URL_RECEIVED:
          resetUrl(payload.url);
+         root.MedicalProfileStore.emit(CHANGE_EVENT);
+         break;
+       case window.MedicalProfileConstants.POST_RECEIVED:
+         addPost(payload.post);
+         root.MedicalProfileStore.emit(CHANGE_EVENT);
+         break;
+       case window.MedicalProfileConstants.ALL_NEEDED:
+         resetPosts(payload.posts);
+         root.MedicalProfileStore.emit(CHANGE_EVENT);
+         break;
+       case window.MedicalProfileConstants.POST_DELETED:
+         deletePost(payload.post);
          root.MedicalProfileStore.emit(CHANGE_EVENT);
          break;
      }

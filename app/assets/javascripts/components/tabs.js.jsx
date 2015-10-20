@@ -1,4 +1,4 @@
-/* global React, Header, Table */
+/* global React, Header, MedicalPosts */
 
 (function(root) {
   'use strict';
@@ -32,7 +32,7 @@
   root.Tab = React.createClass({
     getInitialState: function(){
       var tabs = [
-        {title: "About", content: <Table />},
+        {title: "About", content: <MedicalPosts />},
         {title: "Photos", content: "Photos sub-component goes here"},
         {title: "Videos", content: "Videos sub-component goes here"}
       ];
