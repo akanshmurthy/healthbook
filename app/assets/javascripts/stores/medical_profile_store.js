@@ -2,7 +2,8 @@
 (function(root) {
   'use strict';
   var _url = window.CURRENT_USER_PROFILE_PIC;
-  var _medicalPosts = "";
+  var _medicalPosts = [];
+  var _searchedPosts = [];
   var URL_CHANGE_EVENT = "urlchange";
   var CHANGE_EVENT = "change";
 
@@ -28,12 +29,19 @@
     _medicalPosts.splice(target, target + 1);
   };
 
+  var storeSearchPosts = function(data) {
+    _searchedPosts = data;
+  };
+
   root.MedicalProfileStore = $.extend({}, EventEmitter.prototype, {
     url: function () {
       return _url;
     },
     all: function () {
-      return _medicalPosts;
+      return _medicalPosts.slice();
+    },
+    searchPosts: function () {
+      return _searchedPosts.slice();
     },
     addChangeListener: function (callback) {
       this.on(CHANGE_EVENT, callback);
@@ -63,6 +71,10 @@
          break;
        case window.MedicalProfileConstants.POST_DELETED:
          deletePost(payload.post);
+         root.MedicalProfileStore.emit(CHANGE_EVENT);
+         break;
+       case window.MedicalProfileConstants.BOUNDED_SEARCH:
+         storeSearchPosts(payload.posts);
          root.MedicalProfileStore.emit(CHANGE_EVENT);
          break;
      }

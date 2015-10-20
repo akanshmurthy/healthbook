@@ -1,8 +1,13 @@
 class Api::MedicalPostsController < ApplicationController
 
   def index
-    @posts = MedicalPost.where("medical_posts.user_id = ?", current_user.id)
-    render json: @posts
+    if params[:search_string]
+      @posts = MedicalPost.in_bounds(params[:search_string]).where("medical_posts.user_id = ?", current_user.id)
+      render json: @posts
+    else
+      @posts = MedicalPost.where("medical_posts.user_id = ?", current_user.id)
+      render json: @posts
+    end
   end
 
   def create

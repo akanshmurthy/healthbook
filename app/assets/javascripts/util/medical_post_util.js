@@ -32,5 +32,16 @@
          }
       });
     },
+    getWithBounds: function(searchString) {
+      $.ajax({
+        url: 'api/medical_posts',
+        type: 'get',
+        data: searchString,
+        dataType: 'json',
+        success: function(result) {
+          root.MedicalProfileActions.receiveSearchResults(result);
+        }
+      });
+    },
   };
 }(this));

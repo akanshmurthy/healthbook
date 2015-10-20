@@ -16,7 +16,7 @@
         {
           this.props.matches.map(function(post) {
             return <button onClick={this.postClicked.bind(null, post.id)} id="searchresult" type="button" className="btn btn-primary" key={post.id} >
-              {post.body}
+              {post.body ? post.body : post.field_name}
             </button>;
           }.bind(this))
         }
@@ -34,6 +34,7 @@
       var searchString = e.currentTarget.value;
       if (searchString.length > 0) {
         root.StatusFormUtil.getWithBounds({search_string: searchString});
+        root.MedicalPostUtil.getWithBounds({search_string: searchString})
       } else {
         this.setState({matchesAry: []});
       }
@@ -45,12 +46,16 @@
     },
     componentDidMount: function () {
       root.StatusFormStore.addChangeListener(this._onChange);
+      root.MedicalProfileStore.addChangeListener(this._onChange);
     },
     componentDidUnmount: function () {
       root.StatusFormStore.removeChangeListener(this._onChange);
+      root.MedicalProfileStore.removeChangeListener(this._onChange);
     },
     _onChange: function () {
-      this.setState({matchesAry: root.StatusFormStore.searchPosts()});
+      var fullSearch = root.StatusFormStore.searchPosts();
+      fullSearch.concat(root.MedicalProfileStore.searchPosts());
+      this.setState({matchesAry: fullSearch});
     },
     handleSubmit: function(e) {
       e.preventDefault();

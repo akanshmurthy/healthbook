@@ -28,6 +28,13 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :medical_posts,
+    class_name: "MedicalPost",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
   def self.find_by_credentials(user_name, password)
     user = User.find_by(user_name: user_name)
     return nil if user.nil?

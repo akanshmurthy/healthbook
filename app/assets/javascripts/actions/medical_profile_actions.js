@@ -25,5 +25,11 @@
         post: result
       });
     },
+    receiveSearchResults: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.MedicalProfileConstants.BOUNDED_SEARCH,
+        posts: result
+      });
+    },
   };
 }(this));

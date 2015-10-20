@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
   def index
     if params[:search_string]
-      @posts = Post.in_bounds(params[:search_string])
+      @posts = Post.in_bounds(params[:search_string]).where("posts.user_id = ?", current_user.id)
       render json: @posts
     else
       @posts = Post.where("posts.user_id = ?", current_user.id)
