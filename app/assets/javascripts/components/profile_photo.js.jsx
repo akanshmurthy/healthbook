@@ -11,18 +11,11 @@
       cloudinary.openUploadWidget({ cloud_name: window.CLOUDINARY_OPTIONS.cloud_name, upload_preset: window.CLOUDINARY_OPTIONS.upload_preset},
       function(error, result) {
         if (result) {
+          window.CURRENT_USER_PROFILE_PIC = result[0].url;
+          that.setState({url: window.CURRENT_USER_PROFILE_PIC});
           root.UserUtil.post({url_string: result[0].url});
         }
       });
-    },
-    componentDidMount: function () {
-      root.MedicalProfileStore.addUrlChangeListener(this._onChange);
-    },
-    _onChange: function () {
-      this.setState({url: root.MedicalProfileStore.url()});
-    },
-    componentDidUnmount: function () {
-      root.MedicalProfileStore.removeUrlChangeListener(this._onChange);
     },
     render: function () {
       return(
