@@ -5,17 +5,21 @@
 
   root.ReturnClass = React.createClass({
     mixins: [ReactRouter.History],
-    postClicked: function(id, e){
+    postClicked: function(id, body, e){
       e.preventDefault();
-      this.history.pushState(null, "posts/" + id);
+      if (body) {
+        this.history.pushState(null, "posts/" + id);
+      } else {
+        this.history.pushState(null, "medical_posts/" + id);
+      }
     },
     render: function () {
       var that = this;
       return (
         <ul id="searchresults">
         {
-          this.props.matches.map(function(post) {
-            return <button onClick={this.postClicked.bind(null, post.id)} id="searchresult" type="button" className="btn btn-primary" key={post.id} >
+          this.props.matches.map(function(post, i) {
+            return <button onClick={this.postClicked.bind(null, post.id, post.body)} id="searchresult" type="button" className="btn btn-primary" key={i} >
               {post.body ? post.body : post.field_name}
             </button>;
           }.bind(this))
@@ -34,27 +38,33 @@
       var searchString = e.currentTarget.value;
       if (searchString.length > 0) {
         root.StatusFormUtil.getWithBounds({search_string: searchString});
-        root.MedicalPostUtil.getWithBounds({search_string: searchString})
+        root.MedicalPostUtil.getWithBounds({search_string: searchString});
       } else {
+        // ADD CLEAR ACTIONS FOR STORES
         this.setState({matchesAry: []});
       }
     },
     handleEnter: function(e) {
       if (e.key === "Enter") {
-        this.history.pushState(null, "posts/" + this.state.matchesAry[0].id)
+        if (this.state.matchesAry[0].body) {
+          this.history.pushState(null, "posts/" + this.state.matchesAry[0].id)
+        } else {
+          this.history.pushState(null, "medical_posts/" + this.state.matchesAry[0].id)
+        }
       }
     },
     componentDidMount: function () {
       root.StatusFormStore.addChangeListener(this._onChange);
       root.MedicalProfileStore.addChangeListener(this._onChange);
     },
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       root.StatusFormStore.removeChangeListener(this._onChange);
       root.MedicalProfileStore.removeChangeListener(this._onChange);
     },
     _onChange: function () {
       var fullSearch = root.StatusFormStore.searchPosts();
-      fullSearch.concat(root.MedicalProfileStore.searchPosts());
+      fullSearch = fullSearch.concat(root.MedicalProfileStore.searchPosts());
+      debugger;
       this.setState({matchesAry: fullSearch});
     },
     handleSubmit: function(e) {
