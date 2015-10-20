@@ -6,6 +6,7 @@
   var _searchedPosts = [];
   var URL_CHANGE_EVENT = "urlchange";
   var CHANGE_EVENT = "change";
+  var SINGLE_RECEIVED_EVENT = "single"
 
   var resetUrl = function (data) {
     _url = data.url_string;
@@ -33,12 +34,25 @@
     _searchedPosts = data;
   };
 
+  var resetSearchPosts = function() {
+    _searchedPosts = [];
+  };
+
   root.MedicalProfileStore = $.extend({}, EventEmitter.prototype, {
     url: function () {
       return _url;
     },
     all: function () {
       return _medicalPosts.slice();
+    },
+    findPostById: function(id){
+      var foundPost;
+      _medicalPosts.forEach(function(post){
+        if (post.id == id){
+          foundPost = post;
+        }
+      });
+      return foundPost;
     },
     searchPosts: function () {
       return _searchedPosts.slice();
@@ -54,6 +68,12 @@
     },
     removeUrlChangeListener: function(callback){
       this.removeListener(URL_CHANGE_EVENT, callback);
+    },
+    addSinglePostReceivedListener: function (callback) {
+      this.on(CHANGE_EVENT, callback);
+    },
+    removeSinglePostReceivedListener: function(callback){
+      this.removeListener(CHANGE_EVENT, callback);
     },
     dispatcherID: root.AppDispatcher.register(function(payload){
      switch(payload.actionType){
@@ -75,6 +95,10 @@
          break;
        case window.MedicalProfileConstants.BOUNDED_SEARCH:
          storeSearchPosts(payload.posts);
+         root.MedicalProfileStore.emit(CHANGE_EVENT);
+         break;
+       case window.MedicalProfileConstants.CLEAR_STORE:
+         resetSearchPosts();
          root.MedicalProfileStore.emit(CHANGE_EVENT);
          break;
      }

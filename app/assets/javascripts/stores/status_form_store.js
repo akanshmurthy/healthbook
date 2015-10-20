@@ -32,6 +32,10 @@
     _searchedPosts = data;
   };
 
+  var resetSearchPosts = function() {
+    _searchedPosts = [];
+  };
+
   root.StatusFormStore = $.extend({}, EventEmitter.prototype, {
     posts: function () {
       return _posts.slice();
@@ -77,6 +81,10 @@
          break;
        case window.StatusFormConstants.BOUNDED_SEARCH:
          storeSearchPosts(payload.posts);
+         root.StatusFormStore.emit(CHANGE_EVENT);
+         break;
+       case window.StatusFormConstants.CLEAR_STORE:
+         resetSearchPosts();
          root.StatusFormStore.emit(CHANGE_EVENT);
          break;
      }

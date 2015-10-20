@@ -31,5 +31,11 @@
         posts: result
       });
     },
+    clearStore: function(data) {
+      root.AppDispatcher.dispatch({
+        actionType: root.MedicalProfileConstants.CLEAR_STORE,
+        message: data
+      });
+    }
   };
 }(this));

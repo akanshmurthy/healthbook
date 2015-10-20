@@ -25,5 +25,11 @@
         posts: result
       });
     },
+    clearStore: function(data) {
+      root.AppDispatcher.dispatch({
+        actionType: root.StatusFormConstants.CLEAR_STORE,
+        message: data
+      });
+    }
   };
 }(this));

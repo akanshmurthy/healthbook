@@ -41,6 +41,8 @@
         root.MedicalPostUtil.getWithBounds({search_string: searchString});
       } else {
         // ADD CLEAR ACTIONS FOR STORES
+        root.MedicalProfileActions.clearStore("clear");
+        root.StatusFormActions.clearStore("clear");
         this.setState({matchesAry: []});
       }
     },
@@ -64,7 +66,6 @@
     _onChange: function () {
       var fullSearch = root.StatusFormStore.searchPosts();
       fullSearch = fullSearch.concat(root.MedicalProfileStore.searchPosts());
-      debugger;
       this.setState({matchesAry: fullSearch});
     },
     handleSubmit: function(e) {
