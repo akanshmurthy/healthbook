@@ -13,7 +13,7 @@
       root.UserUtil.fetch();
       root.UserStore.addChangeListener(this._onChange);
     },
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       root.UserStore.removeChangeListener(this._onChange);
     },
     render: function () {

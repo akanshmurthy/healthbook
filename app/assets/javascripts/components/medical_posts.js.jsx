@@ -13,7 +13,7 @@
       root.MedicalPostUtil.get();
       root.MedicalProfileStore.addChangeListener(this._onChange);
     },
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       root.MedicalProfileStore.removeChangeListener(this._onChange);
     },
     delete: function(id) {

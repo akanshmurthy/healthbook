@@ -2,30 +2,29 @@
 
 (function(root) {
   'use strict';
-  root.ShowModal = React.createClass({
+  root.MedShowModal = React.createClass({
     getInitialState: function(){
-      var post = root.StatusFormStore.findPostById(this.props.params.id) || {id: this.props.params.id, body: 'loading...'};
+      var post = root.MedicalProfileStore.findPostById(this.props.params.id) || {id: this.props.params.id, body: 'loading...'};
       return {post: post};
     },
     mixins: [ReactRouter.History],
-    returnToIndex: function(){
-      this.history.pushState(null, "");
-      //goback
+    returnToProfile: function(){
+      this.history.pushState(null, "#/profile");
     },
     $modal: function(){
       return $(React.findDOMNode(this.refs.modal));
     },
     postUpdated: function(){
-      var post = root.StatusFormStore.findPostById(this.props.params.id);
+      var post = root.MedicalProfileStore.findPostById(this.props.params.id);
       this.setState({post: post});
     },
     componentDidMount: function () {
-      this.$modal().on("hidden.bs.modal", this.returnToIndex);
+      this.$modal().on("hidden.bs.modal", this.returnToProfile);
       root.StatusFormStore.addSinglePostReceivedListener(this.postUpdated);
       root.StatusFormUtil.getSingle(this.props.params.id);
       this.$modal().modal('show');
     },
-    componentWillUnmount: function () {
+    componentDidUnmount: function () {
       root.StatusFormStore.removeSinglePostReceivedListener(this.postUpdated);
     },
     render: function () {
