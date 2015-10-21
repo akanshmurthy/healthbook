@@ -4,13 +4,12 @@
   'use strict';
 
   root.ReturnClass = React.createClass({
-    mixins: [ReactRouter.History],
-    postClicked: function(id, body, e){
+    postClicked: function(post, e){
       e.preventDefault();
-      if (body) {
-        this.history.pushState(null, "posts/" + id);
+      if (post.body) {
+        ModalActions.showModal(post.body);
       } else {
-        this.history.pushState(null, "medical_posts/" + id);
+        ModalActions.showModal(post.field_name, post.field_value);
       }
     },
     render: function () {
@@ -19,7 +18,7 @@
         <ul id="searchresults">
         {
           this.props.matches.map(function(post, i) {
-            return <button onClick={this.postClicked.bind(null, post.id, post.body)} id="searchresult" type="button" className="btn btn-primary" key={i} >
+            return <button onClick={this.postClicked.bind(null, post)} id="searchresult" type="button" className="btn btn-primary" key={i} >
               {post.body ? post.body : post.field_name}
             </button>;
           }.bind(this))
@@ -30,7 +29,6 @@
   });
 
   root.SearchBar = React.createClass({
-    mixins: [ReactRouter.History],
     getInitialState: function () {
       return({matchesAry: []});
     },
@@ -40,19 +38,9 @@
         root.StatusFormUtil.getWithBounds({search_string: searchString});
         root.MedicalPostUtil.getWithBounds({search_string: searchString});
       } else {
-        // ADD CLEAR ACTIONS FOR STORES
         root.MedicalProfileActions.clearStore("clear");
         root.StatusFormActions.clearStore("clear");
         this.setState({matchesAry: []});
-      }
-    },
-    handleEnter: function(e) {
-      if (e.key === "Enter") {
-        if (this.state.matchesAry[0].body) {
-          this.history.pushState(null, "posts/" + this.state.matchesAry[0].id)
-        } else {
-          this.history.pushState(null, "medical_posts/" + this.state.matchesAry[0].id)
-        }
       }
     },
     componentDidMount: function () {
@@ -70,7 +58,11 @@
     },
     handleSubmit: function(e) {
       e.preventDefault();
-      this.history.pushState(null, "posts/" + this.state.matchesAry[0].id)
+      if (this.state.matchesAry[0].body) {
+        ModalActions.showModal(this.state.matchesAry[0].body);
+      } else {
+        ModalActions.showModal(this.state.matchesAry[0].field_name, this.state.matchesAry[0].field_value);
+      }
     },
     render: function () {
       return(

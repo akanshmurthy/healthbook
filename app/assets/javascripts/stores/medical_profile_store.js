@@ -12,8 +12,13 @@
     _url = data.url_string;
   };
 
-  var addPost = function (data) {
-    _medicalPosts.push(data);
+  var addOrMergePost = function(data) {
+    var existingPost = root.MedicalProfileStore.findPostById(data.id);
+    if (existingPost){
+      $.extend(existingPost, data);
+    } else {
+      _medicalPosts.push(data);
+    }
   };
 
   var resetPosts = function (data) {
@@ -82,8 +87,9 @@
          root.MedicalProfileStore.emit(URL_CHANGE_EVENT);
          break;
        case window.MedicalProfileConstants.POST_RECEIVED:
-         addPost(payload.post);
+         addOrMergePost(payload.post);
          root.MedicalProfileStore.emit(CHANGE_EVENT);
+         root.MedicalProfileStore.emit(SINGLE_RECEIVED_EVENT);
          break;
        case window.MedicalProfileConstants.ALL_NEEDED:
          resetPosts(payload.posts);

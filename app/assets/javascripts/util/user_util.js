@@ -28,7 +28,7 @@
         type: 'post',
         data: {_method: 'delete'},
         success: function (html, status, object) {
-          window.location = "session/new";
+          window.location = "/session/new";
         }
       });
     }

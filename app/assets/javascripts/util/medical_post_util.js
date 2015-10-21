@@ -22,6 +22,17 @@
         }
       });
     },
+    getSingle: function(id){
+      $.ajax({
+        url: 'api/medical_posts/' + id,
+        type: 'get',
+        dataType: 'json',
+        success: function(result) {
+          debugger;
+          root.MedicalProfileActions.receivePost(result);
+        }
+      });
+    },
     destroy: function(id) {
       $.ajax({
         url: 'api/medical_posts/' + id,

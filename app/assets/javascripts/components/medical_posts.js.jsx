@@ -18,7 +18,6 @@
     },
     delete: function(id) {
       root.MedicalPostUtil.destroy(id);
-      // root.StatusFormStore.addChangeListener(this._onChange);
     },
     render: function () {
       var that = this;

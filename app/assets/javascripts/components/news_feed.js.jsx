@@ -19,7 +19,11 @@
     render: function () {
       return(
         <div>
-          Hello, {this.state.user.user_name}!
+          <div>
+            Hello, {this.state.user.user_name}!
+          </div>
+          <StatusForm/>
+          <Posts/>
         </div>
       );
     }

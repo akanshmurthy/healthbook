@@ -19,9 +19,5 @@ class Api::UsersController < ApplicationController
     @user.logout_user!
     render json: "Successfully logged out"
   end
-  #
-  # def url_params
-  #   params.require(:url).permit(:url_string)
-  # end
-
+  
 end
