@@ -3,7 +3,8 @@
 (function(root) {
   'use strict';
   root.NavBar = React.createClass({
-    logout: function () {
+    logout: function (event) {
+      event.preventDefault();
       root.UserUtil.delete();
     },
     render: function () {
