@@ -1,3 +1,22 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.info {
+  float: left;
+  margin-top: 100px;
+  margin-right: 100px;
+  padding: 0px;
+}
+
+.col-xs-4 {
+  float: right;
+}
+
+.info_points {
+  list-style: none;
+}
+
+#inline_form {
+  margin-top: 10px;
+}

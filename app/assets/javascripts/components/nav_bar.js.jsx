@@ -12,8 +12,6 @@
           <nav className="navbar navbar-default">
           <div className="container-fluid">
 
-          <SearchBar />
-
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed"
                       data-toggle="collapse"
@@ -26,6 +24,10 @@
             </div>
 
             <div className="collapse navbar-collapse" id="collapse-menu">
+              <ul className="nav navbar-nav pull-left">
+                <li><a href="#">Healthbook</a></li>
+              </ul>
+                <SearchBar />
               <ul className="nav navbar-nav pull-right">
                 <li><a href="#">Home</a></li>
                 <li><a href="#/profile">Profile</a></li>

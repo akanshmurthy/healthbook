@@ -18,10 +18,10 @@
     render: function () {
       return(
         <div className="row">
-          <div className="col-xs-4">
-            <form className="new-post" onSubmit={this.createPost}>
+          <div id="status-post" className="col-xs-4">
+            <form className="form-inline" onSubmit={this.createPost}>
              <div className="form-group">
-               <label htmlFor="post_body">Body:</label>
+               <label htmlFor="post_body">Status update:</label>
                <input
                  type="text"
                  id="post_body"

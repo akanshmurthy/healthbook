@@ -13,7 +13,6 @@ window.createRouter = function(){
               <NavBar />
             </header>
             <div className="container">
-              <h1>Healthbook</h1>
               {this.props.children}
             </div>
             <ModalManager/>
@@ -21,7 +20,7 @@ window.createRouter = function(){
       );
     }
   });
-  
+
   var routes = (
       <Route path="/" component={App}>
         <IndexRoute component={NewsFeed}/>

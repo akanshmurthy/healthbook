@@ -1,10 +1,23 @@
 <%= render "shared/header" %>
 
 <div class="container">
-  <h1>Healthbook: New User</h1>
+
+  <div class="info">
+    <ul class="info_points">
+      <strong>Take control of your personal health information.</strong>
+      <br>
+      <br>
+      <li>Secure. HIPAA-compliant storage for text, photos, and files.</li>
+      <br>
+      <li>Simple. Intuitive user interface that doesn't need explaining.</li>
+      <br>
+      <li>Accessible. Always retrievable anywhere in the world.</li>
+    <ul>
+  </div>
 
   <div class="row">
     <div class="col-xs-4">
+      <h1>Sign up</h1>
       <form action="<%= users_url %>" method="post">
 
         <input
