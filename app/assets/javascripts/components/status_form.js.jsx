@@ -19,7 +19,7 @@
       return(
         <div className="row">
           <div id="status-post" className="col-xs-4">
-            <form className="form-inline" onSubmit={this.createPost}>
+            <form className="new-post" onSubmit={this.createPost}>
              <div className="form-group">
                <label htmlFor="post_body">Status update:</label>
                <input
