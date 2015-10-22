@@ -26,15 +26,15 @@
 
             <div className="collapse navbar-collapse" id="collapse-menu">
               <ul className="nav navbar-nav pull-left">
-                <li><a href="#">Healthbook</a></li>
+                <li><a id="homepage1" href="#"><span className="glyphicon glyphicon-plus-sign" aria-hidden="true"/></a></li>
               </ul>
                 <SearchBar />
               <ul className="nav navbar-nav pull-right">
-                <li><a href="#">Home</a></li>
-                <li><a href="#/profile">Profile</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#" onClick={this.logout}>Logout</a></li>
+                <li><a id="homepage2" href="#">Home</a></li>
+                <li><a id="homepage3" href="#/profile">Profile</a></li>
+                <li><a id="homepage4" href="#">Notifications</a></li>
+                <li><a id="homepage5" href="#">Messages</a></li>
+                <li><a id="homepage6" href="#" onClick={this.logout}>Logout</a></li>
               </ul>
             </div>
 

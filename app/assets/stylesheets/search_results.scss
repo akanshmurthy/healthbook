@@ -1,13 +1,20 @@
 #searchresults {
   position: absolute;
   top: 42px;
-  left: -25px;
+  left: 18px;
   color: black;
   background-color: inherit;
 }
 
 #searchbar {
   position: relative;
+}
+
+#searchbutton {
+  color: white;
+}
+.grey {
+  color: grey;
 }
 
 #searchresult {

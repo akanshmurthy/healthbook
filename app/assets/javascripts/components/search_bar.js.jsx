@@ -69,9 +69,9 @@
         <div id="searchbar">
         <form className="navbar-form navbar-left" onSubmit={this.handleSubmit} role="search">
           <div className="form-group">
-              <input onInput={this.handleUserInput} type="text" className="form-control" placeholder="Search"/>
+              <input onInput={this.handleUserInput} type="text" className="form-control" placeholder="Search Healthbook"/>
           </div>
-          <button type="submit" className="btn btn-primary"><span className="glyphicon glyphicon-search"></span></button>
+          <button id="searchbutton" type="submit" className="btn"><span className="glyphicon glyphicon-search grey"></span></button>
         </form>
         <div>
         <ReturnClass matches={this.state.matchesAry}/>
