@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   before_action :require_no_user!, only: [:new, :create]
 
   def new
-    render :new
+    redirect_to new_user_url
   end
 
   def create
