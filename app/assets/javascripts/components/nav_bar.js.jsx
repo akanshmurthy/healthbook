@@ -32,7 +32,17 @@
               <ul className="nav navbar-nav pull-right">
                 <li><a id="homepage2" href="#">Home</a></li>
                 <li><a id="homepage3" href="#/profile">Profile</a></li>
-                <li><a id="homepage4" href="#">Notifications</a></li>
+                <li>
+
+                    <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications <span className="caret"></span></a>
+                      <ul className="dropdown-menu" aria-labelledby="dLabel">
+                        <li><a href="#">You just got cancer!</a></li>
+                        <li><a href="#">Dr. Who commented on your photo.</a></li>
+                        <li><a href="#">It's Dr. Doolittle's birthday today!</a></li>
+                        <li><a href="#">This is a reminder about your appointment.</a></li>
+                      </ul>
+
+                </li>
                 <li><a id="homepage5" href="#">Messages</a></li>
                 <li><a id="homepage6" href="#" onClick={this.logout}>Logout</a></li>
               </ul>
