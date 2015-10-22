@@ -22,6 +22,8 @@
             <form className="new-post" onSubmit={this.createPost}>
              <div className="form-group">
                <label htmlFor="post_body">Update Status</label>
+               <br/>
+               <br/>
                <input
                  type="text"
                  id="post_body"
@@ -31,7 +33,7 @@
                  value={this.state.body}
                />
              </div>
-             <button type="submit" className="btn btn-primary">Create Post</button>
+             <button type="submit" className="btn btn-primary pull-right">Create Post</button>
              <br />
            </form>
          </div>
