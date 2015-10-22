@@ -21,10 +21,10 @@
     render: function () {
       return(
         <div className="row">
-          <div className="col-xs-4">
-            <form className="new-post" onSubmit={this.createPost}>
+          <div id="medical-post">
+            <form className="form-inline" onSubmit={this.createPost}>
              <div className="form-group">
-               <label htmlFor="field_name">Name:</label>
+               <label className="sr-only" htmlFor="field_name"></label>
                <input
                  type="text"
                  id="field_name"
@@ -32,7 +32,7 @@
                  className="form-control"
                  placeholder="Name of column"
                />
-             <label htmlFor="field_value">Value:</label>
+             <label htmlFor="field_value"></label>
                <input
                  type="text"
                  id="field_value"

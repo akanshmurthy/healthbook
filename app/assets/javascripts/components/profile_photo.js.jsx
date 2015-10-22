@@ -19,7 +19,7 @@
     },
     render: function () {
       return(
-        <img onClick={this.handleClick} id="upload_widget_opener" className="img-rounded img-responsive" src={this.state.url}> Profile photo </img>
+        <img onClick={this.handleClick} id="upload_widget_opener" className="uploaded-photo" src={this.state.url}></img>
       );
     }
   });

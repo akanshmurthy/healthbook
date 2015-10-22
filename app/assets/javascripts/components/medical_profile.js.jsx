@@ -6,7 +6,10 @@
     render: function () {
       return(
         <div>
-          <ProfilePhoto />
+          <div className="cover-photo"></div>
+          <div className="profile-photo">
+            <ProfilePhoto />
+          </div>
           <br></br>
           <MedicalProfileForm />
           <br></br>
