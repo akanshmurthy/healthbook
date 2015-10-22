@@ -20,11 +20,13 @@
 
 
 <% if flash[:errors] %>
-  <ul>
-  <% flash[:errors].each do |error| %>
-    <li><%= error %></li>
+  <div id="error-bar" class="alert alert-danger fade in .alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Errors:
+  <% flash[:errors].each_with_index do |error, idx| %>
+    <%=idx+1%>. <%= error %>.
   <% end %>
-  </ul>
+  </div>
 <% end %>
 
 
