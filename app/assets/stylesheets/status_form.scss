@@ -1,3 +1,22 @@
 #status-post{
-  margin-left: 250px
+  width: 500px;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.new-post {
+  padding: 30px;
+}
+
+.list-group {
+  width: 500px;
+  margin: auto;
+}
+
+.container-fluid {
+  background-color: #3a5795;
+}
+
+#homepage1, #homepage2, #homepage3, #homepage4, #homepage5, #homepage6 {
+  color: white;
 }
