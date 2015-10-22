@@ -25,6 +25,7 @@ window.createRouter = function(){
       <Route path="/" component={App}>
         <IndexRoute component={NewsFeed}/>
         <Route path="profile" component={MedicalProfile} />
+        <Route path="resources" component={Resources} />
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);
