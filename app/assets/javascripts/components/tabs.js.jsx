@@ -8,7 +8,7 @@
       var that = this;
 
       return (
-        <ul className="medical-profile-tabs"> {
+          <div className="medical-profile-tabs"> {
           this.props.titles.map(function(title, idx) {
             if (idx === this.props.chosen) {
               var bold = {fontWeight:'bold'};
@@ -24,7 +24,7 @@
               </button>
             );
           }.bind(this))
-        } </ul>
+        } </div>
       );
     }
   });
@@ -33,8 +33,7 @@
     getInitialState: function(){
       var tabs = [
         {title: "About", content: <MedicalPosts />},
-        {title: "Photos", content: "Photos sub-component goes here"},
-        {title: "Videos", content: "Videos sub-component goes here"}
+        {title: "Files", content: <div className="file-holder">Upload photos, videos, and files.</div>},
       ];
 
       return ({ tabs: tabs, chosen: 0 });

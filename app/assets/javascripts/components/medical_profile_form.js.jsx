@@ -31,6 +31,7 @@
                  onChange={this.handleNameChange}
                  className="form-control"
                  placeholder="Name of column"
+                 value={this.state.field_name}
                />
              <label htmlFor="field_value"></label>
                <input
@@ -39,6 +40,7 @@
                  onChange={this.handleValueChange}
                  className="form-control"
                  placeholder="Value of column"
+                 value={this.state.field_value}
                />
              </div>
              <button type="submit" className="btn btn-primary">Create Entry</button>

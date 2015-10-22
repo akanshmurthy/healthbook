@@ -7,14 +7,18 @@
       return(
         <div>
           <div className="cover-photo"></div>
-          <div className="profile-photo">
-            <ProfilePhoto />
+          <div className="exclude-cover-photo">
+            <div className="profile-photo">
+              <ProfilePhoto />
+            </div>
+            <br></br>
+            <MedicalProfileForm />
+            <br></br>
+            <div className="medical-profile-tabs">
+              <Tab />
+            </div>
           </div>
-          <br></br>
-          <MedicalProfileForm />
-          <br></br>
-          <Tab />
-        </div>
+      </div>
       );
     }
   });

@@ -24,10 +24,11 @@
       return(
          <ul className="list-group">
            {that.state.medicalPosts.map(function(el){
-             return <li key={el.id} className="list-group-item">{el.field_name}: {el.field_value}
-                 <h6>{jQuery.timeago(el.created_at)}</h6>
-                 <a href="/#/profile" onClick={that.delete.bind(that, el.id)}>Delete</a>
-               </li>;
+             return <li key={el.id} className="list-group-item">
+                      {el.field_name}: {el.field_value}
+                      <h6>{jQuery.timeago(el.created_at)}</h6>
+                      <a href="/#/profile" onClick={that.delete.bind(that, el.id)}>Delete</a>
+                    </li>;
            })}
          </ul>
       );
