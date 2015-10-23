@@ -35,7 +35,7 @@
     getInitialState: function(){
       var tabs = [
         {title: "Entries", content: <MedicalPosts />},
-        {title: "Files", content: <div className="file-holder">Upload photos, videos, and files.</div>},
+        {title: "Files", content: <MedicalFiles />}
       ];
 
       return ({ tabs: tabs, chosen: 0 });

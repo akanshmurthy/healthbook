@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :users
     resources :posts
     resources :medical_posts
+    resources :medical_files
   end
 end

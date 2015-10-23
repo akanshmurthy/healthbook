@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019223820) do
+ActiveRecord::Schema.define(version: 20151023205437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "medical_files", force: :cascade do |t|
+    t.string   "url_string", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "medical_files", ["user_id"], name: "index_medical_files_on_user_id", using: :btree
 
   create_table "medical_posts", force: :cascade do |t|
     t.string   "field_name"
@@ -22,6 +31,15 @@ ActiveRecord::Schema.define(version: 20151019223820) do
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "medical_posts", ["user_id"], name: "index_medical_posts_on_user_id", using: :btree
+
+  create_table "medprofiles", force: :cascade do |t|
+    t.string   "medprofile_name"
+    t.string   "medprofile_value"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "posts", force: :cascade do |t|
