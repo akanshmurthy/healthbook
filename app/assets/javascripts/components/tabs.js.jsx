@@ -17,7 +17,9 @@
             }
             return(
               <button
+                type="button"
                 style={bold}
+                className="btn btn-default"
                 onClick={ that.props.onTabSelected.bind(null, idx) }
                 key={title}>
                 {title}
@@ -32,7 +34,7 @@
   root.Tab = React.createClass({
     getInitialState: function(){
       var tabs = [
-        {title: "About", content: <MedicalPosts />},
+        {title: "Entries", content: <MedicalPosts />},
         {title: "Files", content: <div className="file-holder">Upload photos, videos, and files.</div>},
       ];
 

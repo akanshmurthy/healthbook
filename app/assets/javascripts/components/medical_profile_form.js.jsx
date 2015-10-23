@@ -30,7 +30,7 @@
                  id="field_name"
                  onChange={this.handleNameChange}
                  className="form-control"
-                 placeholder="Name of column"
+                 placeholder="Name of entry"
                  value={this.state.field_name}
                />
              <label htmlFor="field_value"></label>
@@ -39,7 +39,7 @@
                  id="field_value"
                  onChange={this.handleValueChange}
                  className="form-control"
-                 placeholder="Value of column"
+                 placeholder="Value of entry"
                  value={this.state.field_value}
                />
              </div>
