@@ -10,7 +10,7 @@
 #
 
 class MedicalFile < ActiveRecord::Base
-  validates :url_string, :user_id, presence: true
+  validates :title, :url_string, :user_id, presence: true
 
   belongs_to(
     :user,

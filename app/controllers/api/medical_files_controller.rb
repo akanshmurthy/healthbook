@@ -29,6 +29,6 @@ class Api::MedicalFilesController < ApplicationController
     private
 
     def file_params
-      params.require(:medical_file).permit(:url_string, :user_id)
+      params.require(:medical_file).permit(:title, :url_string, :user_id)
     end
 end

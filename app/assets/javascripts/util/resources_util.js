@@ -3,7 +3,7 @@
   root.ResourcesUtil = {
     get: function(data) {
       $.ajax({
-        url: 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + data + "&user_key=be702bdc648a29b546eb0f0e99ccd34e",
+        url: 'https://api.betterdoctor.com/2014-09-12/doctors?query=' + data + "&user_key=" + window.BETTER_DOCTOR_API_KEY,
         //navigator.geolocation
         type: 'get',
         dataType: 'json',
