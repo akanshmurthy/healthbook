@@ -25,9 +25,9 @@
          <ul className="list-group">
            {that.state.medicalPosts.map(function(el){
              return <li key={el.id} className="list-group-item">
-                      {el.field_name}: {el.field_value}
-                      <h6>{jQuery.timeago(el.created_at)}</h6>
-                      <a href="/#/profile" onClick={that.delete.bind(that, el.id)}>Delete</a>
+                      <span className="content-key">{el.field_name}</span><span className="colon">=</span> <span className="content-value">{el.field_value}</span>
+                      <span className="time-stamp"><h6>{jQuery.timeago(el.created_at)}</h6></span>
+                      <a className="delete-link" href="/#/profile" onClick={that.delete.bind(that, el.id)}>Delete</a>
                     </li>;
            })}
          </ul>
