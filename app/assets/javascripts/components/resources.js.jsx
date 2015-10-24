@@ -12,7 +12,6 @@
     },
     searchDocs: function(e) {
       e.preventDefault();
-      debugger;
       root.ResourcesUtil.get(this.state.string, this.state.lat, this.state.lng);
       this.setState({string: ""});
     },
@@ -52,9 +51,11 @@
              <button type="submit" className="btn btn-primary pull-right">Find doctors</button>
              <br />
            </form>
+           <div className="pre-scrollable">
            {this.state.doctors.map(function(doctor){
              return <li key={doctor.uid}>{doctor.profile.first_name}</li>;
            })}
+           </div>
           </div>
         </div>
       );
