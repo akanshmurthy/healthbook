@@ -36,13 +36,6 @@ ActiveRecord::Schema.define(version: 20151023222343) do
 
   add_index "medical_posts", ["user_id"], name: "index_medical_posts_on_user_id", using: :btree
 
-  create_table "medprofiles", force: :cascade do |t|
-    t.string   "medprofile_name"
-    t.string   "medprofile_value"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string   "body",       null: false
     t.datetime "created_at", null: false

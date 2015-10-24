@@ -11,11 +11,10 @@
       cloudinary.openUploadWidget({ cloud_name: window.CLOUDINARY_OPTIONS.cloud_name, upload_preset: window.CLOUDINARY_OPTIONS.upload_preset},
       function(error, result) {
         if (result) {
-          root.MedicalFileUtil.post({title: this.state.title, url_string: result[0].url});
+          root.MedicalFileUtil.post({title: that.state.title, url_string: result[0].url});
+          that.setState({title: ""})
         }
       });
-    },
-    handleSubmit: function (e) {
 
     },
     handleInput: function (e) {
