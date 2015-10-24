@@ -14,7 +14,9 @@
         cloud_name: "<%=ENV["CLOUD_NAME"]%>",
         upload_preset: "<%= ENV["UPLOAD_PRESET"] %>"
       }
-      window.BETTER_DOCTOR_API_KEY = "<%=ENV["BETTER_DOCTOR_API_KEY"]%>"
+      window.BETTER_DOCTOR_OPTIONS = {
+        api_key: "<%=ENV["BETTER_DOCTOR_API_KEY"]%>"
+      }
     </script>
   <% end %>
 </head>

@@ -4,7 +4,7 @@
   'use strict';
   root.Resources = React.createClass({
     getInitialState: function () {
-      return {string: "", doctors: []};
+      return {string: "", lat: "", lng: "", doctors: []};
     },
     handleChange: function(e) {
       e.preventDefault();
@@ -12,7 +12,8 @@
     },
     searchDocs: function(e) {
       e.preventDefault();
-      root.ResourcesUtil.get(this.state.string);
+      debugger;
+      root.ResourcesUtil.get(this.state.string, this.state.lat, this.state.lng);
       this.setState({string: ""});
     },
     _onChange: function () {
@@ -20,6 +21,11 @@
     },
     componentDidMount: function () {
       root.ResourcesStore.addChangeListener(this._onChange);
+      navigator.geolocation.getCurrentPosition(function(result){
+        var lat = result.coords.latitude.toFixed(2);
+        var lng = result.coords.longitude.toFixed(2);
+        this.setState({lat: lat, lng: lng});
+      }.bind(this));
     },
     componentWillUnmount: function () {
       root.ResourcesStore.removeChangeListener(this._onChange);
