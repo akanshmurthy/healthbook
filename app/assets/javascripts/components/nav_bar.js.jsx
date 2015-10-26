@@ -33,12 +33,8 @@
                 <li><a id="homepage2" href="#">Home</a></li>
                 <li><a id="homepage3" href="#/profile">Profile</a></li>
                 <li>
-
-                    <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications <span className="badge">5</span> <span className="caret"></span></a>
-                      <ul className="dropdown-menu" aria-labelledby="dLabel">
-                        <Notifications />
-                      </ul>
-
+                  <Notifications />
+                  <NotificationItems />
                 </li>
                 <li><a id="homepage4" href="#/resources">Resources</a></li>
                 <li><a id="homepage5" href="#">Messages</a></li>

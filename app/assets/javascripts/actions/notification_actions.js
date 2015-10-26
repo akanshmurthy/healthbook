@@ -7,6 +7,12 @@
         notification: result
       });
     },
+    getNotifications: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.NotificationConstants.ALL_NOTIFICATIONS,
+        notifications: result
+      });
+    },
 
 
   };

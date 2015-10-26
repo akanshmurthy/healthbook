@@ -25,8 +25,12 @@
     },
     dispatcherID: root.AppDispatcher.register(function(payload){
      switch(payload.actionType){
-       case root.NotificationConstants.NOTIFICATION_CREATED:
+      case root.NotificationConstants.NOTIFICATION_CREATED:
          addNotification(payload.notification);
+         root.NotificationStore.emit(CHANGE_EVENT);
+         break;
+      case root.NotificationConstants.ALL_NOTIFICATIONS:
+         resetNotification(payload.notifications);
          root.NotificationStore.emit(CHANGE_EVENT);
          break;
      }

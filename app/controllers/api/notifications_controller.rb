@@ -1,4 +1,9 @@
 class Api::NotificationsController < ApplicationController
+  def index
+    @notifications = Notification.where("notifications.notifyee_id = ?", current_user.id)
+    render json: @notifications
+  end
+
   def create
     @notification = Notification.new(notification_params)
     if @notification.save
