@@ -13,6 +13,7 @@
       e.preventDefault();
       var data = {comment: this.state};
       root.CommentUtil.add(data);
+      root.NotificationUtil.create({notification: {body: window.CURRENT_USERNAME + "just commented on your post", notifier_id: window.CURRENT_USER_ID, notifyee_id: this.props.user}})
       this.setState({body: ""});
     },
     render: function () {

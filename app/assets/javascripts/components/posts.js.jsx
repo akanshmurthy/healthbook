@@ -28,7 +28,7 @@
                  <h6>{
                    jQuery.timeago(el.created_at)}
                  </h6><a href="#" onClick={that.delete.bind(that, el.id)}>Delete</a>
-                 <CommentsForm post={el.id}/>
+                 <CommentsForm post={el.id} user={el.user_id}/>
                  <Comments post={el.id} />
                </li>;
            })}

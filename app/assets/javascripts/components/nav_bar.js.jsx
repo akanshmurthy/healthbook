@@ -36,10 +36,7 @@
 
                     <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications <span className="badge">5</span> <span className="caret"></span></a>
                       <ul className="dropdown-menu" aria-labelledby="dLabel">
-                        <li><a href="#">You just got cancer!</a></li>
-                        <li><a href="#">Dr. Who commented on your photo.</a></li>
-                        <li><a href="#">It's Dr. Doolittle's birthday today!</a></li>
-                        <li><a href="#">This is a reminder about your appointment.</a></li>
+                        <Notifications />
                       </ul>
 
                 </li>

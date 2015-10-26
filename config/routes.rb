@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :medical_posts
     resources :medical_files
     resources :comments
+    resources :notifications
   end
 end
