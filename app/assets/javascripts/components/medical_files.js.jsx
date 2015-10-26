@@ -30,7 +30,7 @@
     componentWillUnmount: function () {
       root.MedicalFileStore.removeChangeListener(this._onChange);
     },
-    delete: function(id, e) {
+    delete: function(id) {
       root.MedicalFileUtil.destroy(id);
     },
     render: function () {
@@ -57,7 +57,7 @@
           {this.state.urls.map(function(url){
             return(
               <div key={url.id} className="child-url">{url.title}
-                <a href="/#/profile" onClick={that.delete.bind(that, url.id)}>Delete</a>
+                <a onClick={that.delete.bind(that, url.id)}>Delete</a>
               </div>
             )
           })}

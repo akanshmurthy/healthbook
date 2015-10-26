@@ -43,7 +43,7 @@
          resetUrls(payload.url);
          root.MedicalFileStore.emit(CHANGE_EVENT);
          break;
-       case root.MedicalFileConstants.URLS_RECEIVED:
+       case root.MedicalFileConstants.FILE_DELETED:
          deleteUrl(payload.url);
          root.MedicalFileStore.emit(CHANGE_EVENT);
          break;
