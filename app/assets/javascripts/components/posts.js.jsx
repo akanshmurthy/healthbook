@@ -18,8 +18,7 @@
     },
     delete: function(id) {
       root.StatusFormUtil.destroy(id);
-     },
-
+    },
     render: function () {
       var that = this;
       return(
@@ -29,6 +28,8 @@
                  <h6>{
                    jQuery.timeago(el.created_at)}
                  </h6><a href="#" onClick={that.delete.bind(that, el.id)}>Delete</a>
+                 <CommentsForm post={el.id}/>
+                 <Comments post={el.id} />
                </li>;
            })}
          </ul>

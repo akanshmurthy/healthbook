@@ -19,6 +19,13 @@ class Post < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :post_id,
+    primary_key: :id
+  )
+
   def self.in_bounds(search_string)
     like_query = "%#{search_string}%"
     Post.where("lower(posts.body) LIKE ?", like_query.downcase)
