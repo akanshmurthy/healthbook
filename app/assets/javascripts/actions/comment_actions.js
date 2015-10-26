@@ -18,6 +18,18 @@
         actionType: root.CommentConstants.COMMENT_DELETED,
         comment: result
       });
+    },
+    receiveSearchResults: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.CommentConstants.BOUNDED_SEARCH,
+        comments: result
+      });
+    },
+    clearStore: function(data) {
+      root.AppDispatcher.dispatch({
+        actionType: root.CommentConstants.CLEAR_STORE,
+        message: data
+      });
     }
   };
 }(this));

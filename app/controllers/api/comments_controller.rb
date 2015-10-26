@@ -1,7 +1,12 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.where("comments.user_id = ?", current_user.id)
-    render json: @comments
+    if params[:search_string]
+      @comments = Comment.in_bounds(params[:search_string]).where("comments.user_id = ?", current_user.id)
+      render json: @comments
+    else
+      @comments = Comment.where("comments.user_id = ?", current_user.id)
+      render json: @comments
+    end
   end
 
   def create

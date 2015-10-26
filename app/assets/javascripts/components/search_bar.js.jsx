@@ -37,23 +37,28 @@
       if (searchString.length > 0) {
         root.StatusFormUtil.getWithBounds({search_string: searchString});
         root.MedicalPostUtil.getWithBounds({search_string: searchString});
+        root.CommentUtil.getWithBounds({search_string: searchString});
       } else {
         root.MedicalProfileActions.clearStore("clear");
         root.StatusFormActions.clearStore("clear");
+        root.CommentActions.clearStore("clear");
         this.setState({matchesAry: []});
       }
     },
     componentDidMount: function () {
       root.StatusFormStore.addChangeListener(this._onChange);
       root.MedicalProfileStore.addChangeListener(this._onChange);
+      root.CommentStore.addChangeListener(this._onChange);
     },
     componentWillUnmount: function () {
       root.StatusFormStore.removeChangeListener(this._onChange);
       root.MedicalProfileStore.removeChangeListener(this._onChange);
+      root.CommentStore.removeChangeListener(this._onChange);
     },
     _onChange: function () {
       var fullSearch = root.StatusFormStore.searchPosts();
       fullSearch = fullSearch.concat(root.MedicalProfileStore.searchPosts());
+      fullSearch = fullSearch.concat(root.CommentStore.searchComments());
       this.setState({matchesAry: fullSearch});
     },
     handleSubmit: function(e) {

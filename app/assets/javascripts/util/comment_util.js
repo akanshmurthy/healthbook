@@ -32,5 +32,16 @@
          }
       });
     },
+    getWithBounds: function(searchString) {
+      $.ajax({
+        url: 'api/comments',
+        type: 'get',
+        data: searchString,
+        dataType: 'json',
+        success: function(result) {
+          root.CommentActions.receiveSearchResults(result);
+        }
+      });
+    },
   };
 }(this));

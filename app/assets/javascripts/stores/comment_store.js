@@ -3,6 +3,7 @@
   'use strict';
   var _comments = [];
   var CHANGE_EVENT = "change";
+  var _searchComments = [];
 
   var addComment = function(data) {
     _comments.push(data);
@@ -22,9 +23,20 @@
     _comments.splice(target, target + 1);
   };
 
+  var storeSearchComments = function(data) {
+    _searchComments = data;
+  };
+
+  var resetSearchComments = function() {
+    _searchComments = [];
+  };
+
   root.CommentStore = $.extend({}, EventEmitter.prototype, {
     comments: function () {
       return _comments.slice();
+    },
+    searchComments: function () {
+      return _searchComments.slice();
     },
     findByPostId: function (id) {
       var foundComments = [];
@@ -53,6 +65,14 @@
         break;
       case root.CommentConstants.COMMENT_DELETED:
         deleteComment(payload.comment);
+        root.CommentStore.emit(CHANGE_EVENT);
+        break;
+      case root.CommentConstants.BOUNDED_SEARCH:
+        storeSearchComments(payload.comments);
+        root.CommentStore.emit(CHANGE_EVENT);
+        break;
+      case root.CommentConstants.CLEAR_STORE:
+        resetSearchComments();
         root.CommentStore.emit(CHANGE_EVENT);
         break;
      }
