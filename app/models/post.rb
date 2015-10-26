@@ -23,7 +23,8 @@ class Post < ActiveRecord::Base
     :comments,
     class_name: "Comment",
     foreign_key: :post_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   def self.in_bounds(search_string)

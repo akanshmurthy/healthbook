@@ -25,28 +25,32 @@ class User < ActiveRecord::Base
     :posts,
     class_name: "Post",
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :medical_posts,
     class_name: "MedicalPost",
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :medical_files,
     class_name: "MedicalFile",
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :comments,
     class_name: "Comment",
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   def self.find_by_credentials(user_name, password)
