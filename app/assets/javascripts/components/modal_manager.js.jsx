@@ -5,6 +5,9 @@ var ModalManager = React.createClass({
   componentDidMount: function(){
     ModalContentStore.addChangeListener(this.modalChanged);
   },
+  componentWillUnmount: function(){
+    ModalContentStore.removeChangeListener(this.modalChanged);
+  },
   modalChanged: function(){
     this.setState({ modalData: ModalContentStore.modalData() });
   },
