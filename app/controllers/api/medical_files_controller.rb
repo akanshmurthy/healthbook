@@ -16,12 +16,12 @@ class Api::MedicalFilesController < ApplicationController
     end
 
     def show
-      @medical_file = MedicalPost.find(params[:id])
+      @medical_file = MedicalFile.find(params[:id])
       render json: @medical_file
     end
 
     def destroy
-      @medical_file = MedicalPost.find(params[:id])
+      @medical_file = MedicalFile.find(params[:id])
       @medical_file.destroy
       render json: @medical_file
     end

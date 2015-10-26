@@ -30,7 +30,11 @@
     componentWillUnmount: function () {
       root.MedicalFileStore.removeChangeListener(this._onChange);
     },
+    delete: function(id, e) {
+      root.MedicalFileUtil.destroy(id);
+    },
     render: function () {
+      var that = this;
       return(
         <div>
           <form className="form-inline">
@@ -51,7 +55,11 @@
             Click here to upload!
           </div>
           {this.state.urls.map(function(url){
-            return(<div key={url.id} className="child-url">{url.title}</div>)
+            return(
+              <div key={url.id} className="child-url">{url.title}
+                <a href="/#/profile" onClick={that.delete.bind(that, url.id)}>Delete</a>
+              </div>
+            )
           })}
         </div>
       );

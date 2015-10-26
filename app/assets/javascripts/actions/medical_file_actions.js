@@ -12,6 +12,12 @@
         actionType: root.MedicalFileConstants.POST_RECEIVED,
         url: result
       });
+    },
+    deleteFile: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.MedicalFileConstants.FILE_DELETED,
+        url: result
+      });
     }
   };
 }(this));

@@ -21,6 +21,16 @@
           root.MedicalFileActions.receivePost(result);
         }
       });
-    }
+    },
+    destroy: function(id) {
+      $.ajax({
+        url: 'api/medical_files/' + id,
+        type: 'post',
+        data: {_method: 'delete'},
+        success: function(result) {
+          root.MedicalFileActions.deleteFile(result);
+         }
+      });
+    },
   };
 }(this));

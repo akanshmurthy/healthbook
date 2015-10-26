@@ -13,6 +13,16 @@
     _urls.push(data);
   };
 
+  var deleteUrl = function(data) {
+    var target = -1;
+    _urls.forEach(function(el, idx){
+      if (el.id === data.id) {
+        target = idx;
+      }
+    });
+    _urls.splice(target, target + 1);
+  };
+
   root.MedicalFileStore = $.extend({}, EventEmitter.prototype, {
     urls: function () {
       return _urls.slice();
@@ -31,6 +41,10 @@
          break;
        case root.MedicalFileConstants.URLS_RECEIVED:
          resetUrls(payload.url);
+         root.MedicalFileStore.emit(CHANGE_EVENT);
+         break;
+       case root.MedicalFileConstants.URLS_RECEIVED:
+         deleteUrl(payload.url);
          root.MedicalFileStore.emit(CHANGE_EVENT);
          break;
      }
