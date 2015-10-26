@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  notifyee_id: 1
+  notifier_id: 1
+
+two:
+  body: MyString
+  notifyee_id: 1
+  notifier_id: 1

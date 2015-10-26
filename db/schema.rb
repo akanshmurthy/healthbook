@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026002815) do
+ActiveRecord::Schema.define(version: 20151026194522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20151026002815) do
   end
 
   add_index "medical_posts", ["user_id"], name: "index_medical_posts_on_user_id", using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.string   "body",        null: false
+    t.integer  "notifyee_id", null: false
+    t.integer  "notifier_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "notifications", ["notifier_id"], name: "index_notifications_on_notifier_id", using: :btree
+  add_index "notifications", ["notifyee_id"], name: "index_notifications_on_notifyee_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "body",       null: false

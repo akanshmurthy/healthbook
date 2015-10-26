@@ -53,6 +53,20 @@ class User < ActiveRecord::Base
     dependent: :destroy
   )
 
+  has_many(
+    :received_notifications,
+    class_name: "User",
+    foreign_key: :notifyee_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :given_notifications,
+    class_name: "User",
+    foreign_key: :notifier_id,
+    primary_key: :id
+  )
+
   def self.find_by_credentials(user_name, password)
     user = User.find_by(user_name: user_name)
     return nil if user.nil?
