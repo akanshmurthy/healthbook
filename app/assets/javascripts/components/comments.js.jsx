@@ -24,10 +24,10 @@
       return(
          <ul>
            {that.state.comments.map(function(el){
-             return <li key={el.id}>{el.body}
+             return <li key={el.id}><img className="small-prof-pic" src={window.CURRENT_USER_PROFILE_PIC}/>{el.body}
                  <h6>{
                    jQuery.timeago(el.created_at)} by {window.CURRENT_USERNAME}
-                 </h6><a href="#" onClick={that.delete.bind(that, el.id)}>Delete</a>
+                 </h6><a onClick={that.delete.bind(that, el.id)}>Delete</a>
                </li>;
            })}
          </ul>

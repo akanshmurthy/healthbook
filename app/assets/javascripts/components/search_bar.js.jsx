@@ -76,7 +76,7 @@
           <div className="form-group">
               <input onInput={this.handleUserInput} type="text" className="form-control" placeholder="Search Healthbook"/>
           </div>
-          <button id="searchbutton" type="submit" className="btn"><span className="glyphicon glyphicon-search grey"></span></button>
+          <button id="searchbutton" type="submit" className="btn btn-default"><span className="glyphicon glyphicon-search grey"></span></button>
         </form>
         <div>
         <ReturnClass matches={this.state.matchesAry}/>

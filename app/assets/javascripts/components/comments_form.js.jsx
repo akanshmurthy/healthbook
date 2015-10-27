@@ -32,7 +32,7 @@
                  value={this.state.body}
                />
              </div>
-             <button type="submit" className="btn">Submit</button>
+             <button type="submit" className="btn btn-default">Submit</button>
              <br />
            </form>
          </div>

@@ -24,13 +24,17 @@
       return(
          <ul className="list-group">
            {that.state.posts.map(function(el){
-             return <li key={el.id} className="list-group-item">{el.body}
+             return(
+                <li key={el.id} className="list-group-item"><img className="small-prof-pic" src={window.CURRENT_USER_PROFILE_PIC}/>{el.body}
                  <h6>{
                    jQuery.timeago(el.created_at)}
-                 </h6><a href="#" onClick={that.delete.bind(that, el.id)}>Delete</a>
-                 <CommentsForm post={el.id} user={el.user_id}/>
+                 </h6>
+                 <a onClick={that.delete.bind(that, el.id)}>Delete</a>
+                 <hr/>
                  <Comments post={el.id} />
-               </li>;
+                 <br/>
+                 <CommentsForm post={el.id} user={el.user_id}/>
+               </li>)
            })}
          </ul>
       );

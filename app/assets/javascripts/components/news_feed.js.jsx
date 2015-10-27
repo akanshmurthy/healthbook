@@ -20,7 +20,7 @@
       return(
         <div>
           <div>
-            Hello, {this.state.user.user_name}!
+            <h2>Hello, {this.state.user.user_name}!</h2>
           </div>
           <StatusForm/>
           <Posts/>

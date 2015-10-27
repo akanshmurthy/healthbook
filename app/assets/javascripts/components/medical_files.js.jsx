@@ -6,7 +6,8 @@
     getInitialState: function () {
       return({title: "", urls: root.MedicalFileStore.urls()});
     },
-    handleClick: function () {
+    handleClick: function(e) {
+      e.preventDefault();
       var that = this;
       cloudinary.openUploadWidget({ cloud_name: window.CLOUDINARY_OPTIONS.cloud_name, upload_preset: window.CLOUDINARY_OPTIONS.upload_preset},
       function(error, result) {
@@ -37,6 +38,7 @@
       var that = this;
       return(
         <div>
+          <br/>
           <form className="form-inline">
            <div className="form-group">
              <label className="sr-only" htmlFor="title"></label>
@@ -49,18 +51,22 @@
                value={this.state.title}
              />
            </div>
-           <br />
+           <button type="submit" className="btn btn-default" onClick={this.handleClick} id="upload_widget_opener">
+             Upload file!
+          </button>
          </form>
-          <div onClick={this.handleClick} id="upload_widget_opener" className="uploaded-file">
-            Click here to upload!
-          </div>
+          <ul className="list-group">
           {this.state.urls.map(function(url){
             return(
-              <div key={url.id} className="child-url">{url.title}
-                <a onClick={that.delete.bind(that, url.id)}>Delete</a>
-              </div>
-            )
+              <li key={url.id} className="list-group-item">
+                        <span className="glyphicon glyphicon-file"/>
+                        <a href={url.url_string}>{url.title}</a>
+                        <h6>{jQuery.timeago(url.created_at)}</h6>
+                        <a onClick={that.delete.bind(that, url.id)}>Delete</a>
+              </li>
+            );
           })}
+          </ul>
         </div>
       );
     }

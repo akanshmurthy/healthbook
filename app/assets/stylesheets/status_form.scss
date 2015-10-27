@@ -23,6 +23,13 @@
   -o-animation: fadein 2s; /* Opera */
 }
 
+.small-prof-pic {
+  width: 40px;
+  height: 40px;
+  border: 1px solid grey;
+  margin: 5px;
+}
+
 @keyframes fadein {
   from {
       opacity:0;
@@ -63,4 +70,8 @@
 
 #homepage1, #homepage2, #homepage3, #homepage4, #homepage5, #homepage6 {
   color: white;
+}
+
+ul li a:hover {
+  color: bold;
 }
