@@ -32,31 +32,33 @@
     render: function () {
       return(
         <div>
-          <div id="htapWidgetAskdoc" data-color="rgb(238, 245, 250)" style={{height: 600, width: 300}}></div>
-          <div id="betterdoctor">Find doctors near you!
-            <form onSubmit={this.searchDocs}>
-             <div className="form-group">
-               <label htmlFor="post_body">Type in a condition.</label>
-               <br/>
-               <br/>
-               <input
-                 type="text"
-                 id="post_body"
-                 onChange={this.handleChange}
-                 className="form-control"
-                 placeholder="Condition"
-                 value={this.state.string}
-               />
-             </div>
-             <button type="submit" className="btn btn-primary pull-right">Find doctors</button>
-             <br />
-           </form>
-           <div className="pre-scrollable">
-           {this.state.doctors.map(function(doctor){
-             return <li key={doctor.uid}>{doctor.profile.first_name}</li>;
-           })}
+          <div id="htapWidgetAskdoc" className="pull-left" data-color="rgb(238, 245, 250)" style={{height: 600, width: 300}}></div>
+          <div id="betterdoctor" className="pull-right">
+          <form id="doctorform" onSubmit={this.searchDocs}>
+           <div className="form-group">
+             <label htmlFor="post_body">Find doctors near you! </label>
+             <br/>
+             <br/>
+             <input
+               type="text"
+               id="post_body"
+               onChange={this.handleChange}
+               className="form-control"
+               placeholder="Type in a condition"
+               value={this.state.string}
+             />
            </div>
-          </div>
+           <button type="submit" className="btn btn-primary">Find doctors</button>
+           <br />
+         </form>
+
+          <ul className="list-group">
+           {this.state.doctors.map(function(doctor){
+             return <li className="list-group-item" key={doctor.uid}> {doctor.profile.first_name} {doctor.profile.last_name}, {doctor.practices[0].name}</li>
+           })}
+          </ul>
+        </div>
+
         </div>
       );
     }

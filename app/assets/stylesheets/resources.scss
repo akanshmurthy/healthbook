@@ -1,16 +1,15 @@
 #betterdoctor {
   width: 300px;
-  height: 300px;
+  height: 600px;
   border: 1px solid black;
-  float: right;
+  display: inline-block;
+  text-align: center;
+}
+
+#doctorform {
+  padding: 10px;
 }
 
 #htapWidgetAskdoc {
-  float: left;
-}
-
-#doctor-results {
-  width: 200px;
-  height: 200px;
-  overflow: scroll;
+  display: inline-block;
 }
