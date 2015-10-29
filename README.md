@@ -2,6 +2,8 @@
 
 Welcome to Healthbook, a healthcare web application inspired by Dropbox and Facebook built using Ruby on Rails and React.js.
 
+www.healthbook.xyz
+
 ## Design Docs
 * [View Wireframes][view]
 * [DB schema][schema]
