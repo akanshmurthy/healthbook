@@ -42,7 +42,7 @@
   <div class="row">
     <div class="col-xs-4">
       <h1>Sign up</h1>
-      <form action="<%= users_url %>" method="post">
+      <form id="signup-form" action="<%= users_url %>" method="post">
 
         <input
           type="hidden"
@@ -70,6 +70,18 @@
         </div>
 
         <button type="submit" class="btn btn-primary"> Sign Up </button>
+      </form>
+      <form id="guest-signin" action="<%= session_url %>" method="post">
+          <input
+            type="hidden"
+            name="authenticity_token"
+            value="<%= form_authenticity_token %>">
+
+            <input type="hidden" name="user[user_name]" value=<%=ENV["GUEST_USERNAME"]%>>
+
+            <input type="hidden" name="user[password]" value=<%=ENV["GUEST_PASSWORD"]%>>
+
+          <button type="submit" class="btn btn-primary">Guest Sign Up</button>
       </form>
     </div>
   </div>

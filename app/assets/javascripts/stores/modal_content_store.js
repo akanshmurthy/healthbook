@@ -13,6 +13,7 @@
   var clearModal = function(){
     $.extend(_modalData, EMPTY_AND_HIDDEN);
     //clear the input of the search field after exiting modal...
+    // document.getElementById("searchform").reset();
   };
 
   root.ModalContentStore = $.extend({}, EventEmitter.prototype, {

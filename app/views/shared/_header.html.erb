@@ -33,18 +33,6 @@
           </div>
           <button type="submit" class="btn btn-default btn-sm">Sign in</button>
         </form>
-        <form id="guest-signin" action="<%= session_url %>" method="post">
-          <input
-            type="hidden"
-            name="authenticity_token"
-            value="<%= form_authenticity_token %>">
-
-            <input type="hidden" name="user[user_name]" value=<%=ENV["GUEST_USERNAME"]%>>
-
-            <input type="hidden" name="user[password]" value=<%=ENV["GUEST_PASSWORD"]%>>
-
-          <button type="submit" class="btn btn-default btn-sm">Guest Sign In</button>
-        </form>
       </ul>
     </div>
 

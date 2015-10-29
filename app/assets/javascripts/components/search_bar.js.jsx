@@ -72,7 +72,7 @@
     render: function () {
       return(
         <div id="searchbar">
-        <form className="navbar-form navbar-left" onSubmit={this.handleSubmit} role="search">
+        <form id="searchform" className="navbar-form navbar-left" onSubmit={this.handleSubmit} role="search">
           <div className="form-group">
               <input onInput={this.handleUserInput} type="text" className="form-control" placeholder="Search Healthbook"/>
           </div>
