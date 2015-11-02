@@ -4,6 +4,7 @@
   left: 18px;
   color: black;
   background-color: inherit;
+  z-index: 300;
 }
 
 #searchbar {
@@ -20,14 +21,16 @@
 
 #searchresult {
   display: block;
-  width: 178px;
+  width: 230px;
   color: black;
   background-color: white;
+  text-align: left;
 }
 
 #searchresult:hover {
   display: block;
-  width: 178px;
+  width: 230px;
   color: white;
   background-color: #3a5795;
+  text-align: left;
 }
