@@ -30,6 +30,10 @@
   margin: 5px;
 }
 
+#namephoto {
+  position: fixed;
+}
+
 @keyframes fadein {
   from {
       opacity:0;
@@ -68,10 +72,15 @@
   background-color: #3a5795;
 }
 
-#homepage1, #homepage2, #homepage3, #homepage4, #homepage5, #homepage6 {
+#homepage1 {
+  color: black;
+}
+
+#homepage2, #homepage3, #homepage4, #homepage5, #homepage6 {
   color: white;
 }
 
 ul li a:hover {
   color: bold;
 }
+

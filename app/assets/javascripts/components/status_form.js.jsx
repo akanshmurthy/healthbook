@@ -21,7 +21,7 @@
           <div id="status-post">
             <form className="new-post" onSubmit={this.createPost}>
              <div className="form-group">
-               <label htmlFor="post_body">Update Status</label>
+               <label htmlFor="post_body">Your Medical Diary</label>
                <br/>
                <br/>
                <input
@@ -33,7 +33,7 @@
                  value={this.state.body}
                />
              </div>
-             <button type="submit" className="btn btn-primary pull-right">Create Post</button>
+             <button type="submit" className="btn btn-primary pull-right">Create Diary Entry</button>
              <br />
            </form>
          </div>

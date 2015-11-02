@@ -19,8 +19,9 @@
     render: function () {
       return(
         <div>
-          <div>
+          <div id="namephoto">
             <h2>Hello, {this.state.user.user_name}!</h2>
+            <ProfilePhoto />
           </div>
           <StatusForm/>
           <Posts/>
