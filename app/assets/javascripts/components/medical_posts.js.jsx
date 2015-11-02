@@ -23,7 +23,7 @@
       var that = this;
       return(
          <ul className="list-group">
-           {that.state.medicalPosts.map(function(el){
+           {that.state.medicalPosts.reverse().map(function(el){
              return <li key={el.id} className="list-group-item">
                       <span className="content-key">{el.field_name}</span>
                       <div className="colon"></div>

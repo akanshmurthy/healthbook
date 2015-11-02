@@ -56,7 +56,7 @@
           </button>
          </form>
           <ul className="list-group">
-          {this.state.urls.map(function(url){
+          {this.state.urls.reverse().map(function(url){
             return(
               <li key={url.id} className="list-group-item">
                         <span className="glyphicon glyphicon-file"/>

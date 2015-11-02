@@ -23,7 +23,7 @@
       var that = this;
       return(
          <ul className="list-group">
-           {that.state.posts.map(function(el){
+           {that.state.posts.reverse().map(function(el){
              return(
                 <li key={el.id} className="list-group-item"><img className="small-prof-pic" src={window.CURRENT_USER_PROFILE_PIC}/>{el.body}
                  <h6>{
