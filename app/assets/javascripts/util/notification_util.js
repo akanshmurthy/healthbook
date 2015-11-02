@@ -28,7 +28,7 @@
       type: 'post',
       data: {_method: 'delete'},
       success: function(result) {
-        root.NotificationActions.deletePost(result);
+        root.NotificationActions.deleteNotification(result);
        }
     });
   },

@@ -13,6 +13,13 @@ class Api::NotificationsController < ApplicationController
     end
   end
 
+  def destroy
+    notification = Notification.find(params[:id])
+    notification.destroy
+    render json: notification
+  end
+
+
   private
 
   def notification_params
