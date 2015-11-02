@@ -32,7 +32,7 @@
         target = idx;
       }
     });
-    _medicalPosts.splice(target, target + 1);
+    _medicalPosts.splice(target, 1);
   };
 
   var storeSearchPosts = function(data) {

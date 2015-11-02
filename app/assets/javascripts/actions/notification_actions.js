@@ -13,6 +13,12 @@
         notifications: result
       });
     },
+    deleteNotification: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.NotificationConstants.DELETE_NOTIFICATION,
+        notification: result
+      });
+    },
 
 
   };

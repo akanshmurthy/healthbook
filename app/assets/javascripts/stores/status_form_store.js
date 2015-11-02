@@ -25,7 +25,7 @@
         target = idx;
       }
     });
-    _posts.splice(target, target + 1);
+    _posts.splice(target, 1);
   };
 
   var storeSearchPosts = function(data) {

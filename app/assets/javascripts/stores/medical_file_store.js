@@ -20,7 +20,7 @@
         target = idx;
       }
     });
-    _urls.splice(target, target + 1);
+    _urls.splice(target, 1);
   };
 
   root.MedicalFileStore = $.extend({}, EventEmitter.prototype, {

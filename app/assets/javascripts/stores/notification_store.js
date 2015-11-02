@@ -13,6 +13,16 @@
     _notifications.push(data);
   };
 
+  var deleteNotification = function(data) {
+    var target = -1;
+    _notifications.forEach(function(el, idx){
+      if (el.id === data.id) {
+        target = idx;
+      }
+    });
+    _notifications.splice(target, 1);
+  };
+
   root.NotificationStore = $.extend({}, EventEmitter.prototype, {
     getNotifications: function () {
       return _notifications.slice();
@@ -31,6 +41,10 @@
          break;
       case root.NotificationConstants.ALL_NOTIFICATIONS:
          resetNotification(payload.notifications);
+         root.NotificationStore.emit(CHANGE_EVENT);
+         break;
+      case root.NotificationConstants.DELETE_NOTIFICATION:
+         deleteNotification(payload.notification);
          root.NotificationStore.emit(CHANGE_EVENT);
          break;
      }

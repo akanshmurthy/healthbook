@@ -21,6 +21,16 @@
           root.NotificationActions.getNotifications(result);
         }
       });
-    }
+    },
+    destroy: function(id) {
+    $.ajax({
+      url: 'api/notifications/' + id,
+      type: 'post',
+      data: {_method: 'delete'},
+      success: function(result) {
+        root.NotificationActions.deletePost(result);
+       }
+    });
+  },
   };
 }(this));

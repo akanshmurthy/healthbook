@@ -20,7 +20,7 @@
         target = idx;
       }
     });
-    _comments.splice(target, target + 1);
+    _comments.splice(target, 1);
   };
 
   var storeSearchComments = function(data) {
