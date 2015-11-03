@@ -4,6 +4,9 @@
   border: 1px solid black;
   display: inline-block;
   text-align: center;
+  position: relative;
+  left: 300px;
+  bottom: 869px;
 }
 
 #doctorform {
@@ -11,5 +14,5 @@
 }
 
 #htapWidgetAskdoc {
-  display: inline-block;
+  bottom: 250px;
 }

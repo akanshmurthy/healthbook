@@ -36,7 +36,6 @@
                   <Notifications />
                   <NotificationItems />
                 </li>
-                <li><a id="homepage4" href="#/resources">Resources</a></li>
                 <li><a id="homepage5" href="#">Messages</a></li>
                 <li><a id="homepage6" href="#" onClick={this.logout}>Logout</a></li>
               </ul>

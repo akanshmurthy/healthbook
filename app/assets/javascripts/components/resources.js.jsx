@@ -32,7 +32,7 @@
     render: function () {
       return(
         <div>
-          <div id="htapWidgetAskdoc" className="pull-left" data-color="rgb(238, 245, 250)" style={{height: 600, width: 300}}></div>
+          <div id="htapWidgetAskdoc" className="pull-right" data-color="rgb(238, 245, 250)" style={{height: 600, width: 300}}></div>
           <div id="betterdoctor" className="pull-right">
           <form id="doctorform" onSubmit={this.searchDocs}>
            <div className="form-group">

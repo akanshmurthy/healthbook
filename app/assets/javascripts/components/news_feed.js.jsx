@@ -25,6 +25,7 @@
           </div>
           <StatusForm/>
           <Posts/>
+          <Resources />
         </div>
       );
     }
