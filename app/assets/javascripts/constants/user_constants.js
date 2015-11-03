@@ -1,6 +1,6 @@
 (function(root) {
   'use strict';
   root.UserConstants = {
-    USER_RECEIVED: "USER_RECEIVED",
+    USERS_RECEIVED: "USERS_RECEIVED",
   };
 }(this));

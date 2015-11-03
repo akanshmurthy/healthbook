@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   def index
-    @user = User.find(current_user.id)
+    @user = User.all
     render json: @user
   end
 
@@ -19,5 +19,5 @@ class Api::UsersController < ApplicationController
     @user.logout_user!
     render json: "Successfully logged out"
   end
-  
+
 end

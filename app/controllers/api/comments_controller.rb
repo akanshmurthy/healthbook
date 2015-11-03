@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
       @comments = Comment.in_bounds(params[:search_string]).where("comments.user_id = ?", current_user.id)
       render json: @comments
     else
-      @comments = Comment.where("comments.user_id = ?", current_user.id)
+      @comments = Comment.joins(:user)
       render json: @comments
     end
   end

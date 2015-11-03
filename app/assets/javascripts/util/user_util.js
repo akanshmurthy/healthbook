@@ -7,7 +7,7 @@
         type: 'get',
         dataType: 'json',
         success: function(result) {
-          root.UserActions.receiveUser(result);
+          root.UserActions.receiveUsers(result);
         }
       });
     },
