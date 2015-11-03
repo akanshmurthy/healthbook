@@ -20,6 +20,8 @@
     },
     componentDidMount: function () {
       root.ResourcesStore.addChangeListener(this._onChange);
+    },
+    onClick: function () {
       navigator.geolocation.getCurrentPosition(function(result){
         var lat = result.coords.latitude.toFixed(2);
         var lng = result.coords.longitude.toFixed(2);
@@ -48,13 +50,14 @@
                value={this.state.string}
              />
            </div>
-           <button type="submit" className="btn btn-primary">Find doctors</button>
+           <button type="submit" className="btn btn-primary" onClick={this.onClick}>Get my current location.</button>
+           <button type="submit" className="btn btn-primary">Find doctors.</button>
            <br />
          </form>
 
-          <ul className="list-group">
+          <ul>
            {this.state.doctors.map(function(doctor){
-             return <li className="list-group-item" key={doctor.uid}> {doctor.profile.first_name} {doctor.profile.last_name}, {doctor.practices[0].name}</li>
+             return <li id="doctorfind" className="list-group-item" key={doctor.uid}> Dr.{doctor.profile.first_name} {doctor.profile.last_name}</li>
            })}
           </ul>
         </div>
