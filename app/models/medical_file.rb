@@ -7,6 +7,7 @@
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  title      :string           not null
 #
 
 class MedicalFile < ActiveRecord::Base
@@ -18,5 +19,10 @@ class MedicalFile < ActiveRecord::Base
     foreign_key: :user_id,
     primary_key: :id
   )
+
+  def self.in_bounds(search_string)
+    like_query = "%#{search_string}%"
+    MedicalFile.where("lower(medical_files.title) LIKE ?", like_query.downcase)
+  end
 
 end

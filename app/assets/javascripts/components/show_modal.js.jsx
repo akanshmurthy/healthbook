@@ -11,6 +11,7 @@
          root.StatusFormActions.clearStore();
          root.MedicalProfileActions.clearStore();
          root.CommentActions.clearStore();
+         root.MedicalFileActions.clearStore();
          document.getElementById('searchform').reset();
       });
       this.$modal().modal('show');

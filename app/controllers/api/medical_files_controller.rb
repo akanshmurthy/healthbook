@@ -1,8 +1,13 @@
 class Api::MedicalFilesController < ApplicationController
 
     def index
-      @medical_files = MedicalFile.where("medical_files.user_id = ?", current_user.id)
-      render json: @medical_files
+      if params[:search_string]
+        @medical_files = MedicalFile.in_bounds(params[:search_string]).where("medical_files.user_id = ?", current_user.id)
+        render json: @medical_files
+      else
+        @medical_files = MedicalFile.where("medical_files.user_id = ?", current_user.id)
+        render json: @medical_files
+      end
     end
 
     def create

@@ -18,6 +18,17 @@
         actionType: root.MedicalFileConstants.FILE_DELETED,
         url: result
       });
+    },
+    receiveSearchResults: function (result) {
+      root.AppDispatcher.dispatch({
+        actionType: root.MedicalFileConstants.BOUNDED_SEARCH,
+        files: result
+      });
+    },
+    clearStore: function() {
+      root.AppDispatcher.dispatch({
+        actionType: root.MedicalFileConstants.CLEAR_STORE,
+      });
     }
   };
 }(this));

@@ -32,5 +32,16 @@
          }
       });
     },
+    getWithBounds: function(searchString) {
+      $.ajax({
+        url: 'api/medical_files',
+        type: 'get',
+        data: searchString,
+        dataType: 'json',
+        success: function(result) {
+          root.MedicalFileActions.receiveSearchResults(result);
+        }
+      });
+    },
   };
 }(this));

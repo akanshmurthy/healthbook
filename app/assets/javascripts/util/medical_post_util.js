@@ -28,7 +28,6 @@
         type: 'get',
         dataType: 'json',
         success: function(result) {
-          debugger;
           root.MedicalProfileActions.receivePost(result);
         }
       });
