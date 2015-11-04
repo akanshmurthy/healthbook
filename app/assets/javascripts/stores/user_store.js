@@ -8,14 +8,8 @@
   };
 
   root.UserStore = $.extend({}, EventEmitter.prototype, {
-    user: function () {
-      var currentUser;
-      _users.forEach(function(user){
-        if (user.id == window.CURRENT_USER_ID){
-          currentUser = user;
-        }
-      });
-      return currentUser;
+    users: function (id) {
+      return _users.slice();
     },
     addChangeListener: function (callback) {
       this.on(CHANGE_EVENT, callback);
