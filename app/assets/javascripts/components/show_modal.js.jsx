@@ -6,7 +6,13 @@
       return $(React.findDOMNode(this.refs.modal));
     },
     componentDidMount: function () {
-      this.$modal().on("hidden.bs.modal", ModalActions.clearModal);
+      this.$modal().on("hidden.bs.modal", function(){
+         ModalActions.clearModal();
+         root.StatusFormActions.clearStore();
+         root.MedicalProfileActions.clearStore();
+         root.CommentActions.clearStore();
+         document.getElementById('searchform').reset();
+      });
       this.$modal().modal('show');
     },
     render: function () {
