@@ -26,7 +26,7 @@
           foundUser = user;
         }
       });
-      return foundUser.user_name;
+      return foundUser;
     },
     delete: function(id) {
       root.CommentUtil.destroy(id);
@@ -37,9 +37,9 @@
       return(
          <ul>
            {that.state.comments.map(function(el){
-             return <li key={el.id}><img className="small-prof-pic" src={window.CURRENT_USER_PROFILE_PIC}/>{el.body}
+             return <li key={el.id}><img className="small-prof-pic" src={that.state.users.length > 0 ? that.findUser(el.user_id).url_string : ""}/>{el.body}
                  <h6>{
-                   jQuery.timeago(el.created_at)} by {that.state.users.length > 0 ? that.findUser(el.user_id) : filler}
+                   jQuery.timeago(el.created_at)} by {that.state.users.length > 0 ? that.findUser(el.user_id).user_name : filler}
                  </h6><a onClick={that.delete.bind(that, el.id)}>Delete</a>
                </li>;
            })}
