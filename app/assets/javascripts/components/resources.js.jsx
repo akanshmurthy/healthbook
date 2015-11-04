@@ -50,9 +50,18 @@
                value={this.state.string}
              />
            </div>
-           <button type="submit" className="btn btn-primary" onClick={this.onClick}>Get my current location.</button>
+           <button type="submit" className="btn btn-primary" onClick={this.onClick}>Set current location.</button>
            <button type="submit" className="btn btn-primary">Find doctors.</button>
            <br />
+           <br />
+           <span className="instructions">
+           Instructions:
+            <ol>
+              <li> Type in a health condition. </li>
+              <li> Click the Get my current location button to set your location. </li>
+              <li> Click the Find doctors button to get a list! </li>
+            </ol>
+          </ span>
          </form>
 
           <ul>

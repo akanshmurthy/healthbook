@@ -30,13 +30,12 @@
               </ul>
                 <SearchBar />
               <ul className="nav navbar-nav pull-right">
-                <li><a id="homepage2" href="#">Home</a></li>
-                <li><a id="homepage3" href="#/profile">Profile</a></li>
                 <li>
                   <Notifications />
                   <NotificationItems />
                 </li>
-                <li><a id="homepage5" href="#">Messages</a></li>
+                <li><a id="homepage2" href="#">Home</a></li>
+                <li><a id="homepage3" href="#/profile">Profile</a></li>
                 <li><a id="homepage6" href="#" onClick={this.logout}>Logout</a></li>
               </ul>
             </div>

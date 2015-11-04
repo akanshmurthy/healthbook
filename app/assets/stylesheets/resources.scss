@@ -1,12 +1,17 @@
 #betterdoctor {
   width: 300px;
-  height: 600px;
+  height: 400px;
   border: 1px solid black;
   display: inline-block;
   text-align: center;
   position: relative;
   left: 300px;
   bottom: 869px;
+  overflow: scroll;
+}
+
+.instructions {
+  text-align: left;
 }
 
 #doctorform {
@@ -18,5 +23,5 @@
 }
 
 #htapWidgetAskdoc {
-  bottom: 250px;
+  bottom: 450px;
 }
