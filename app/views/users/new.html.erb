@@ -77,9 +77,9 @@
             name="authenticity_token"
             value="<%= form_authenticity_token %>">
 
-            <input type="hidden" name="user[user_name]" value=<%=ENV["GUEST_USERNAME"]%>>
+            <input type="hidden" name="user[user_name]" value="Mr. Holmes">
 
-            <input type="hidden" name="user[password]" value=<%=ENV["GUEST_PASSWORD"]%>>
+            <input type="hidden" name="user[password]" value="thebestdetective!">
 
           <button type="submit" class="btn btn-primary">Guest Sign Up</button>
       </form>
