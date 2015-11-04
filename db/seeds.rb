@@ -1,7 +1,7 @@
 
-User.create!({id: 1, user_name: "Mr. Holmes", password_digest: "$2a$10$oZc6pdXFTd/xEreC5P8Qku1DeunUBz8EOxJwCFn8Jno/REj9bDoo2", session_token: "7nffgOd7AYqYZSxVbLPDaQ", url_string: "http://res.cloudinary.com/dy1hwxj4e/image/upload/v1446424981/phzz7qictzgffktltdrr.png"})
+User.create!({id: 1, user_name: "Mr. Holmes", password: "thebestdetective!", url_string: "http://res.cloudinary.com/dy1hwxj4e/image/upload/v1446424981/phzz7qictzgffktltdrr.png"})
 
-User.create!({id: 2, user_name: "Dr. Watson", password_digest: "$2a$10$yPy52UUg2NY8eWW94hxZj.oNIsjV5GqNJwSPbdMgd1sXK.NQSUu7.", session_token: "91ZfT0A72wtLsmAbn8fevw", url_string: "http://res.cloudinary.com/dy1hwxj4e/image/upload/v1446445161/fgp9pheq7m4tnnlmsm1q.jpg", is_doctor: true})
+User.create!({id: 2, user_name: "Dr. Watson", password: "thebestdoctor!", url_string: "http://res.cloudinary.com/dy1hwxj4e/image/upload/v1446445161/fgp9pheq7m4tnnlmsm1q.jpg", is_doctor: true})
 
 Post.create!({id: 1, body: "I am blind as a mole.", user_id: 1})
 Post.create!({id: 2, body: "My mental acuity tires me.", user_id: 1})
