@@ -10,9 +10,13 @@
             <h2>Hello, {window.CURRENT_USERNAME}!</h2>
             <ProfilePhoto />
           </div>
-          <StatusForm/>
-          <Posts/>
-          <Resources />
+          <div id="form-posts">
+            <StatusForm/>
+            <Posts/>
+          </div>
+          <div id="widgets">
+            <Resources />
+          </div>
         </div>
       );
     }
