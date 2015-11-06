@@ -57,8 +57,8 @@
            <span className="instructions">
            Instructions:
             <ol>
-              <li> Type in a health condition. </li>
               <li> Click the Get my current location button to set your location. </li>
+              <li> Type in a health condition. </li>
               <li> Click the Find doctors button to get a list! </li>
             </ol>
           </ span>
