@@ -62,13 +62,14 @@
                 </ol>
               </ span>
              </form>
+             <ul>
+              {this.state.doctors.map(function(doctor){
+                return <li id="doctorfind" className="list-group-item" key={doctor.uid}> Dr.{doctor.profile.first_name} {doctor.profile.last_name}</li>
+              })}
+             </ul>
            </div>
 
-            <ul>
-             {this.state.doctors.map(function(doctor){
-               return <li id="doctorfind" className="list-group-item" key={doctor.uid}> Dr.{doctor.profile.first_name} {doctor.profile.last_name}</li>
-             })}
-            </ul>
+
 
             <div id="htapwidget">
               <div id="htapWidgetAskdoc" className="pull-right" data-color="rgb(238, 245, 250)" style={{height: 600, width: 300}}></div>
