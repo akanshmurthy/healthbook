@@ -9,6 +9,7 @@
           <div id="namephoto">
             <h2>Hello, {window.CURRENT_USERNAME}!</h2>
             <ProfilePhoto />
+            <DoctorVerify />
           </div>
           <div id="form-posts">
             <StatusForm/>

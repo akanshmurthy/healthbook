@@ -64,7 +64,7 @@
              </form>
              <ul>
               {this.state.doctors.map(function(doctor){
-                return <li id="doctorfind" className="list-group-item" key={doctor.uid}> Dr.{doctor.profile.first_name} at {doctor.practices[0].name}</li>
+                return <li id="doctorfind" className="list-group-item" key={doctor.uid}> Dr. {doctor.profile.first_name} {doctor.profile.last_name} at {doctor.practices[0].name}</li>
               })}
              </ul>
            </div>

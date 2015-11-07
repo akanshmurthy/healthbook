@@ -92,7 +92,7 @@
         <div id="searchbar">
         <form id="searchform" className="navbar-form navbar-left" onSubmit={this.handleSubmit} role="search">
           <div className="form-group">
-              <input onInput={this.handleUserInput} type="text" className="form-control" placeholder="Search Healthbook"/>
+              <input onInput={this.handleUserInput} type="text" className="form-control" placeholder="Search your data."/>
           </div>
           <button id="searchbutton" type="submit" className="btn btn-default"><span className="glyphicon glyphicon-search grey"></span></button>
         </form>
