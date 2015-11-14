@@ -29,7 +29,7 @@
                       <div className="colon"></div>
                       <span className="content-value">{el.field_value}</span>
                       <span className="time-stamp"><h6>{jQuery.timeago(el.created_at)}</h6></span>
-                      <a className="delete-link" href="/#/profile" onClick={that.delete.bind(that, el.id)}>Delete</a>
+                      <a className="delete-link" onClick={that.delete.bind(that, el.id)}>Delete</a>
                     </li>;
            })}
          </ul>
