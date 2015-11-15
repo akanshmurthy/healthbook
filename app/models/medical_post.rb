@@ -22,7 +22,7 @@ class MedicalPost < ActiveRecord::Base
 
   def self.in_bounds(search_string)
     like_query = "%#{search_string}%"
-    MedicalPost.where("lower(medical_posts.field_name) LIKE ?", like_query.downcase)
+    MedicalPost.where("lower(medical_posts.field_name) LIKE ?", like_query.downcase).limit(10)
   end
 
 end

@@ -29,6 +29,6 @@ class Comment < ActiveRecord::Base
 
   def self.in_bounds(search_string)
     like_query = "%#{search_string}%"
-    Comment.where("lower(comments.body) LIKE ?", like_query.downcase)
+    Comment.where("lower(comments.body) LIKE ?", like_query.downcase).limit(10)
   end
 end

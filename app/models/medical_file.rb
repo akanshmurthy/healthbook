@@ -22,7 +22,7 @@ class MedicalFile < ActiveRecord::Base
 
   def self.in_bounds(search_string)
     like_query = "%#{search_string}%"
-    MedicalFile.where("lower(medical_files.title) LIKE ?", like_query.downcase)
+    MedicalFile.where("lower(medical_files.title) LIKE ?", like_query.downcase).limit(10)
   end
 
 end
