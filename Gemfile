@@ -33,6 +33,8 @@ gem 'bootstrap-sass'
 # gem 'unicorn'
 # hide secret/api keys
 gem 'figaro'
+#cron jobs
+gem 'whenever', :require => false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
