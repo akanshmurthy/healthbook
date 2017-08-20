@@ -4,7 +4,7 @@
   'use strict';
   root.Resources = React.createClass({
     getInitialState: function () {
-      return {string: "", lat: "", lng: "", doctors: []};
+      return {string: "", doctors: []};
     },
     handleChange: function(e) {
       e.preventDefault();
@@ -12,7 +12,7 @@
     },
     searchDocs: function(e) {
       e.preventDefault();
-      root.ResourcesUtil.get(this.state.string, this.state.lat, this.state.lng);
+      root.ResourcesUtil.get(this.state.string);
       this.setState({string: ""});
     },
     _onChange: function () {
@@ -20,13 +20,6 @@
     },
     componentDidMount: function () {
       root.ResourcesStore.addChangeListener(this._onChange);
-    },
-    onClick: function () {
-      navigator.geolocation.getCurrentPosition(function(result){
-        var lat = result.coords.latitude.toFixed(2);
-        var lng = result.coords.longitude.toFixed(2);
-        this.setState({lat: lat, lng: lng});
-      }.bind(this));
     },
     componentWillUnmount: function () {
       root.ResourcesStore.removeChangeListener(this._onChange);
@@ -49,14 +42,12 @@
                    value={this.state.string}
                  />
                </div>
-               <button type="submit" className="btn btn-primary" onClick={this.onClick}>Set current location.</button>
                <button type="submit" className="btn btn-primary">Find doctors.</button>
                <br />
                <br />
                <span className="instructions">
                Instructions:
                 <ol>
-                  <li> Click the Get my current location button to set your location. </li>
                   <li> Type in a health condition. </li>
                   <li> Click the Find doctors button to get a list! </li>
                 </ol>
